@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="GMTK Jam 2026"
+run/main_scene="uid://gw22vbyqffmt"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://assets/img/icon.svg"
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
 
 [physics]
 
