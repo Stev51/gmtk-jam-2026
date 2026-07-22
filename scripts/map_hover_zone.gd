@@ -30,12 +30,14 @@ func _process(_delta: float) -> void:
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		get_viewport().set_input_as_handled()
-		click_sound_node.play()
+		if Globals.map_hoverable:
+			get_viewport().set_input_as_handled()
+			click_sound_node.play()
 
 func _on_mouse_entered() -> void:
-	hover_sound_node.play()
-	hover_img_node.visible = true
+	if Globals.map_hoverable:
+		hover_sound_node.play()
+		hover_img_node.visible = true
 
 func _on_mouse_exited() -> void:
 	hover_img_node.visible = false
