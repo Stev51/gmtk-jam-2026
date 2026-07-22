@@ -1,11 +1,17 @@
 class_name Country extends Node
 
-# value is index in the resources array
-enum ResourceType {MONEY=0, URANIUM=1, NUKES=2, INFLUENCE=3}
-var resources = [0, 0, 0, 0]
+var money
+var uranium
+var nukes
+var influence
 
-func set_resource(resource: ResourceType, new_value):
-	resources[resource] = new_value
+@export var initial_money = 0
+@export var initial_uranium = 0
+@export var initial_nukes = 0
+@export var initial_influence = 0
 
-func edit_resource(resource: ResourceType, delta):
-	resources[resource] = resources[resource] + delta
+func reset_resources():
+	money = initial_money
+	uranium = initial_uranium
+	nukes = initial_nukes
+	influence = initial_influence
