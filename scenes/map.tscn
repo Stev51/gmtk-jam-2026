@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c2xgo13ufge3y"]
+
+[ext_resource type="Texture2D" uid="uid://tgr2tm5xin7e" path="res://assets/img/map_background.png" id="1_4xfga"]
+
+[node name="Map" type="Node2D" unique_id=2087630376]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=704915741]
+texture = ExtResource("1_4xfga")
+centered = false
