@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dbvqj3w2xuecq"]
+
+[ext_resource type="PackedScene" uid="uid://c714yyeqdlji" path="res://scenes/clock_display.tscn" id="1_efmwq"]
+
+[node name="GUI" type="Control" unique_id=363270447]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ClockDisplay" parent="." unique_id=1149426984 instance=ExtResource("1_efmwq")]
+layout_mode = 1
+offset_left = 960.0
+offset_top = 75.0
+offset_right = -960.0
+offset_bottom = -1005.0
+scale = Vector2(0.08, 0.08)

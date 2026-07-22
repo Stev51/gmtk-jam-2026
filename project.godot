@@ -18,6 +18,7 @@ config/icon="res://assets/img/icon.svg"
 [autoload]
 
 Globals="*uid://dfoavxi3c2wfo"
+DoomsdayClock="*uid://c3aynadtngliv"
 
 [display]
 
