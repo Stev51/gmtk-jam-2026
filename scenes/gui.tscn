@@ -11,10 +11,28 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ClockDisplay" parent="." unique_id=1149426984 instance=ExtResource("1_efmwq")]
+[node name="TopBar" type="Control" parent="." unique_id=1184544585]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="TopBar" unique_id=172638746]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 85.0
+color = Color(0.16565639, 0.16565639, 0.16565648, 1)
+
+[node name="ClockBG" type="ColorRect" parent="TopBar" unique_id=1882244682]
+layout_mode = 0
+offset_left = 885.0
+offset_right = 1035.0
+offset_bottom = 150.0
+color = Color(0.16470589, 0.16470589, 0.16470589, 1)
+
+[node name="ClockDisplay" parent="TopBar" unique_id=1149426984 instance=ExtResource("1_efmwq")]
 layout_mode = 1
 offset_left = 960.0
 offset_top = 75.0
-offset_right = -960.0
-offset_bottom = -1005.0
+offset_right = 920.0
+offset_bottom = 35.0
 scale = Vector2(0.08, 0.08)
