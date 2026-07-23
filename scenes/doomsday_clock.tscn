@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://c3aynadtngliv"]
-
-[ext_resource type="Script" uid="uid://b6f5c405e45r0" path="res://scripts/doomsday_clock.gd" id="1_siqeo"]
-
-[node name="DoomsdayClock" type="Timer" unique_id=1732668188]
-wait_time = 60.0
-one_shot = true
-script = ExtResource("1_siqeo")

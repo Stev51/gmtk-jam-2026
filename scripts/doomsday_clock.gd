@@ -1,14 +1,25 @@
-extends Timer
+extends Node
 
-func pause() -> void:
-	set_paused(true)
+signal zero_hour
 
-func resume() -> void:
-	set_paused(false)
+var MAX_MINUTES = 5.0
+var START_MINUTES = MAX_MINUTES
 
-func add_time(seconds: float) -> void:
-	var carryover = get_time_left()
-	start(seconds + carryover)
+var minutes
+var timed_out_flag = false
 
-func subtract_time(seconds: float) -> void:
-	add_time(-seconds)
+func _ready() -> void:
+	minutes = START_MINUTES
+
+func _process(_delta: float) -> void:
+	set_minutes()
+	check_timeout()
+
+func set_minutes() -> void:
+	pass
+
+func check_timeout() -> void:
+	if minutes <= 0.0 and not timed_out_flag:
+		minutes = 0.0
+		zero_hour.emit()
+		timed_out_flag = true
