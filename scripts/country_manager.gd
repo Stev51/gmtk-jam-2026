@@ -21,7 +21,11 @@ func _ready() -> void:
 	DoomsdayClock.zero_hour.connect(zero_hour)
 
 func _process(delta: float) -> void:
-	if not Globals.game_paused and not timed_out_flag:
+	if not timed_out_flag and Globals.game_speed != Globals.GameSpeed.PAUSED:
+		
+		if Globals.game_speed == Globals.GameSpeed.FAST:
+			delta *= 2
+		
 		for country in countries:
 			process_country(country, get_total_influence(), delta)
 

@@ -9,7 +9,7 @@ var minutes
 var timed_out_flag = false
 
 func _process(_delta: float) -> void:
-	if not timed_out_flag and not Globals.game_paused:
+	if not timed_out_flag:
 		set_minutes()
 		check_timeout()
 
