@@ -1,5 +1,7 @@
 extends Node
 
+var timed_out_flag = false
+
 # TEMP VARIABLES FOR DEMONSTRATION PURPOSES #
 var NUKES_TO_INFLUENCE = 2.0
 var INFLUENCE_SCARE_DECREASE = 1.0
@@ -12,12 +14,16 @@ var URANIUM_TO_NUKES = 1.0
 @export var countries: Array[Country]
 
 func _ready() -> void:
+	
 	for country in countries:
 		country.init()
+	
+	DoomsdayClock.zero_hour.connect(zero_hour)
 
 func _process(delta: float) -> void:
-	for country in countries:
-		process_country(country, get_total_influence(), delta)
+	if not Globals.game_paused and not timed_out_flag:
+		for country in countries:
+			process_country(country, get_total_influence(), delta)
 
 func get_total_influence() -> float:
 	var count = 0.0
@@ -48,3 +54,6 @@ func process_country(country: Country, total_influence: float, delta: float) -> 
 	while country.money >= MONEY_TO_URANIUM:
 		country.uranium += 1.0
 		country.money -= MONEY_TO_URANIUM
+
+func zero_hour() -> void:
+	timed_out_flag = true

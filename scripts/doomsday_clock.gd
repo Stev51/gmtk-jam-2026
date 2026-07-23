@@ -9,9 +9,9 @@ var minutes
 var timed_out_flag = false
 
 func _process(_delta: float) -> void:
-	set_minutes()
-	check_timeout()
-	print(minutes)
+	if not timed_out_flag and not Globals.game_paused:
+		set_minutes()
+		check_timeout()
 
 func set_minutes() -> void:
 	minutes = CountryManager.get_highest_influence() / (CountryManager.get_total_influence() / 2.0) * MAX_MINUTES
