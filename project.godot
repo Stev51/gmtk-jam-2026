@@ -19,6 +19,7 @@ config/icon="res://assets/img/icon.svg"
 
 Globals="*uid://dfoavxi3c2wfo"
 DoomsdayClock="*uid://b6f5c405e45r0"
+CountryManager="*uid://p5ghfysoscyh"
 
 [display]
 

@@ -6,4 +6,5 @@
 script = ExtResource("1_soxxe")
 long_name = "Muscovian Federation"
 short_name = "Muscovia"
+initial_influence = 5.0
 metadata/_custom_type_script = "uid://6sqxh8xtoasf"

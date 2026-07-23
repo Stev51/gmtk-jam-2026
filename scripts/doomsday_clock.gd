@@ -2,21 +2,19 @@ extends Node
 
 signal zero_hour
 
-var MAX_MINUTES = 5.0
+var MAX_MINUTES = 720.0
 var START_MINUTES = MAX_MINUTES
 
 var minutes
 var timed_out_flag = false
 
-func _ready() -> void:
-	minutes = START_MINUTES
-
 func _process(_delta: float) -> void:
 	set_minutes()
 	check_timeout()
+	print(minutes)
 
 func set_minutes() -> void:
-	pass
+	minutes = CountryManager.get_highest_influence() / (CountryManager.get_total_influence() / 2.0) * MAX_MINUTES
 
 func check_timeout() -> void:
 	if minutes <= 0.0 and not timed_out_flag:

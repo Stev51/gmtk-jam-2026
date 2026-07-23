@@ -6,4 +6,5 @@
 script = ExtResource("1_goot5")
 long_name = "People's Empire of Zhongua"
 short_name = "Zhongua"
+initial_influence = 5.0
 metadata/_custom_type_script = "uid://6sqxh8xtoasf"
