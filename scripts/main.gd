@@ -12,6 +12,3 @@ func _input(event):
 		Globals.game_speed = Globals.GameSpeed.NORMAL
 	elif event.is_action_pressed("x2_speed"):
 		Globals.game_speed = Globals.GameSpeed.FAST
-
-func _process(_delta: float) -> void:
-	print(Globals.game_speed)

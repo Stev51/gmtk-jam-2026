@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbvqj3w2xuecq"]
 
 [ext_resource type="PackedScene" uid="uid://c714yyeqdlji" path="res://scenes/clock_display.tscn" id="1_efmwq"]
+[ext_resource type="PackedScene" uid="uid://cfc8td78n7mfk" path="res://scenes/CountryHoverBox.tscn" id="2_mfius"]
 
 [node name="GUI" type="Control" unique_id=363270447]
 layout_mode = 3
@@ -15,11 +16,13 @@ mouse_filter = 2
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="Background" type="ColorRect" parent="TopBar" unique_id=172638746]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 85.0
+mouse_filter = 2
 color = Color(0.16565639, 0.16565639, 0.16565648, 1)
 
 [node name="ClockBG" type="ColorRect" parent="TopBar" unique_id=1882244682]
@@ -27,6 +30,7 @@ layout_mode = 0
 offset_left = 885.0
 offset_right = 1035.0
 offset_bottom = 150.0
+mouse_filter = 2
 color = Color(0.16470589, 0.16470589, 0.16470589, 1)
 
 [node name="ClockDisplay" parent="TopBar" unique_id=1149426984 instance=ExtResource("1_efmwq")]
@@ -36,3 +40,8 @@ offset_top = 75.0
 offset_right = 920.0
 offset_bottom = 35.0
 scale = Vector2(0.08, 0.08)
+mouse_filter = 2
+
+[node name="CountryHoverBox" parent="." unique_id=1145551380 instance=ExtResource("2_mfius")]
+layout_mode = 1
+mouse_filter = 2

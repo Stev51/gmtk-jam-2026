@@ -36,8 +36,12 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 func _on_mouse_entered() -> void:
 	if Globals.map_hoverable:
+		
 		hover_sound_node.play()
 		hover_img_node.visible = true
+		
+		Globals.map_hover(country)
 
 func _on_mouse_exited() -> void:
 	hover_img_node.visible = false
+	Globals.map_unhover()

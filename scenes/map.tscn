@@ -4,14 +4,19 @@
 [ext_resource type="PackedScene" uid="uid://drcjb07re8tdb" path="res://scenes/map_hover_zone.tscn" id="2_0cso3"]
 [ext_resource type="Texture2D" uid="uid://cedpykkggh4cr" path="res://assets/img/map_countries/usa_outline.png" id="3_2klcf"]
 [ext_resource type="Texture2D" uid="uid://dqhottqoisv33" path="res://assets/img/map_countries/usa_hover.png" id="4_2lpho"]
+[ext_resource type="Resource" uid="uid://4j0f3uyu0mjx" path="res://resources/countries/usa.tres" id="5_c70he"]
 [ext_resource type="Texture2D" uid="uid://bc8im42y03fya" path="res://assets/img/map_countries/uk_outline.png" id="5_wslke"]
 [ext_resource type="Texture2D" uid="uid://4a1qjc78ahu6" path="res://assets/img/map_countries/uk_hover.png" id="6_gw3fx"]
 [ext_resource type="Texture2D" uid="uid://c7t8g7tew2jre" path="res://assets/img/map_countries/russia_outline.png" id="7_n1psn"]
 [ext_resource type="Texture2D" uid="uid://cgxafsbr7yl0y" path="res://assets/img/map_countries/russia_hover.png" id="8_c00ee"]
+[ext_resource type="Resource" uid="uid://b8u45fnvhehgw" path="res://resources/countries/uk.tres" id="8_mo32q"]
 [ext_resource type="Texture2D" uid="uid://y3gdqwu5cfe2" path="res://assets/img/map_countries/iran_outline.png" id="9_p7tei"]
 [ext_resource type="Texture2D" uid="uid://bfh28dhs6ttnh" path="res://assets/img/map_countries/iran_hover.png" id="10_c70he"]
+[ext_resource type="Resource" uid="uid://dwqvyl1cfaxye" path="res://resources/countries/russia.tres" id="11_6k6j1"]
 [ext_resource type="Texture2D" uid="uid://dwotg8cqd5r42" path="res://assets/img/map_countries/prc_outline.png" id="11_mo32q"]
 [ext_resource type="Texture2D" uid="uid://bt3cpfwjaq5e2" path="res://assets/img/map_countries/prc_hover.png" id="12_6k6j1"]
+[ext_resource type="Resource" uid="uid://prc5jhijy4y3" path="res://resources/countries/iran.tres" id="14_m335s"]
+[ext_resource type="Resource" uid="uid://bn8hka7bucwa3" path="res://resources/countries/prc.tres" id="17_sq6bu"]
 
 [node name="Map" type="Node2D" unique_id=2087630376]
 
@@ -24,6 +29,7 @@ centered = false
 [node name="USA" parent="HoverZones" unique_id=803343824 instance=ExtResource("2_0cso3")]
 outline_image = ExtResource("3_2klcf")
 hover_image = ExtResource("4_2lpho")
+country = ExtResource("5_c70he")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoverZones/USA" unique_id=49311630]
 visible = false
@@ -32,6 +38,7 @@ polygon = PackedVector2Array(682, 336, 621, 331, 518, 371, 398, 385, 293, 417, 2
 [node name="UK" parent="HoverZones" unique_id=1816719684 instance=ExtResource("2_0cso3")]
 outline_image = ExtResource("5_wslke")
 hover_image = ExtResource("6_gw3fx")
+country = ExtResource("8_mo32q")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoverZones/UK" unique_id=1677073442]
 visible = false
@@ -40,6 +47,7 @@ polygon = PackedVector2Array(864, 451, 905, 448, 949, 471, 972, 455, 1007, 454, 
 [node name="Russia" parent="HoverZones" unique_id=1217328066 instance=ExtResource("2_0cso3")]
 outline_image = ExtResource("7_n1psn")
 hover_image = ExtResource("8_c00ee")
+country = ExtResource("11_6k6j1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoverZones/Russia" unique_id=1278819096]
 visible = false
@@ -48,6 +56,7 @@ polygon = PackedVector2Array(1790, 290, 1738, 211, 1716, 192, 1552, 164, 1341, 1
 [node name="Iran" parent="HoverZones" unique_id=1033402550 instance=ExtResource("2_0cso3")]
 outline_image = ExtResource("9_p7tei")
 hover_image = ExtResource("10_c70he")
+country = ExtResource("14_m335s")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoverZones/Iran" unique_id=49093998]
 visible = false
@@ -56,6 +65,7 @@ polygon = PackedVector2Array(1424, 439, 1420, 455, 1394, 478, 1351, 508, 1345, 5
 [node name="PRC" parent="HoverZones" unique_id=708979358 instance=ExtResource("2_0cso3")]
 outline_image = ExtResource("11_mo32q")
 hover_image = ExtResource("12_6k6j1")
+country = ExtResource("17_sq6bu")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoverZones/PRC" unique_id=1240041079]
 visible = false

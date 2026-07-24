@@ -47,6 +47,8 @@ func process_country(country: Country, total_influence: float, delta: float) -> 
 	
 	country.influence += country.nukes * NUKES_TO_INFLUENCE * delta
 	country.influence -= ((total_influence - country.influence) / total_influence ) * INFLUENCE_SCARE_DECREASE * delta
+	if country.influence < 0.0:
+		country.influence = 0.0
 	
 	country.money += country.influence * INFLUENCE_TO_MONEY * delta
 	
