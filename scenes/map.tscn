@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://drcjb07re8tdb" path="res://scenes/map_hover_zone.tscn" id="2_0cso3"]
 [ext_resource type="Texture2D" uid="uid://cedpykkggh4cr" path="res://assets/img/map_countries/usa_outline.png" id="3_2klcf"]
 [ext_resource type="Texture2D" uid="uid://dqhottqoisv33" path="res://assets/img/map_countries/usa_hover.png" id="4_2lpho"]
+[ext_resource type="Resource" uid="uid://4j0f3uyu0mjx" path="res://resources/countries/usa.tres" id="5_gw3fx"]
 [ext_resource type="Texture2D" uid="uid://bc8im42y03fya" path="res://assets/img/map_countries/uk_outline.png" id="5_wslke"]
 [ext_resource type="Texture2D" uid="uid://4a1qjc78ahu6" path="res://assets/img/map_countries/uk_hover.png" id="6_gw3fx"]
 [ext_resource type="Texture2D" uid="uid://c7t8g7tew2jre" path="res://assets/img/map_countries/russia_outline.png" id="7_n1psn"]
@@ -24,6 +25,7 @@ centered = false
 [node name="USA" parent="HoverZones" unique_id=803343824 instance=ExtResource("2_0cso3")]
 outline_image = ExtResource("3_2klcf")
 hover_image = ExtResource("4_2lpho")
+country = ExtResource("5_gw3fx")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoverZones/USA" unique_id=49311630]
 visible = false
