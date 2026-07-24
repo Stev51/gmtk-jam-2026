@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dbvqj3w2xuecq"]
 
 [ext_resource type="PackedScene" uid="uid://c714yyeqdlji" path="res://scenes/clock_display.tscn" id="1_efmwq"]
+[ext_resource type="PackedScene" uid="uid://72546vffaj3k" path="res://scenes/ResourceDisplay.tscn" id="1_mfius"]
+[ext_resource type="Script" uid="uid://d0snhcruvkcpx" path="res://scenes/resource_display.gd" id="1_ynd5l"]
 [ext_resource type="PackedScene" uid="uid://cfc8td78n7mfk" path="res://scenes/CountryHoverBox.tscn" id="2_mfius"]
 
 [node name="GUI" type="Control" unique_id=363270447]
@@ -17,6 +19,28 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
+
+[node name="ResourceDisplay" type="Control" parent="TopBar" unique_id=281639460]
+anchors_preset = 0
+offset_top = 37.5
+offset_right = 40.0
+offset_bottom = 77.5
+script = ExtResource("1_ynd5l")
+
+[node name="Money" parent="TopBar/ResourceDisplay" unique_id=417750439 instance=ExtResource("1_mfius")]
+layout_mode = 0
+offset_left = 100.0
+offset_right = 140.0
+
+[node name="Uranium" parent="TopBar/ResourceDisplay" unique_id=1717653351 instance=ExtResource("1_mfius")]
+layout_mode = 0
+offset_left = 200.0
+offset_right = 240.0
+
+[node name="Nukes" parent="TopBar/ResourceDisplay" unique_id=2050375959 instance=ExtResource("1_mfius")]
+layout_mode = 0
+offset_left = 300.0
+offset_right = 340.0
 
 [node name="Background" type="ColorRect" parent="TopBar" unique_id=172638746]
 layout_mode = 0
@@ -42,6 +66,13 @@ offset_bottom = 35.0
 scale = Vector2(0.08, 0.08)
 mouse_filter = 2
 
+[node name="TimeSpeedControls" type="Control" parent="TopBar" unique_id=1144191744]
+anchors_preset = 0
+offset_left = 1030.0
+offset_top = 37.5
+offset_right = 1070.0
+offset_bottom = 77.5
+
 [node name="CountryHoverBox" parent="." unique_id=1145551380 instance=ExtResource("2_mfius")]
+visible = false
 layout_mode = 1
-mouse_filter = 2
