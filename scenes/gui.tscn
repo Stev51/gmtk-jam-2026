@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c714yyeqdlji" path="res://scenes/clock_display.tscn" id="1_efmwq"]
 [ext_resource type="PackedScene" uid="uid://72546vffaj3k" path="res://scenes/resource_display.tscn" id="1_mfius"]
-[ext_resource type="Script" uid="uid://d0snhcruvkcpx" path="res://scenes/resource_display.gd" id="1_ynd5l"]
+[ext_resource type="Script" uid="uid://d0snhcruvkcpx" path="res://scripts/resource_display.gd" id="1_ynd5l"]
 [ext_resource type="PackedScene" uid="uid://cfc8td78n7mfk" path="res://scenes/country_hover_box.tscn" id="2_mfius"]
 
 [node name="GUI" type="Control" unique_id=363270447]
