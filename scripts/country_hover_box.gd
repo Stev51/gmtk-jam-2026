@@ -11,16 +11,17 @@ func _ready() -> void:
 	
 	Globals.country_hover.connect(hover)
 	Globals.country_unhover.connect(unhover)
+	Globals.country_click.connect(click)
 	
 	name_node.text = ""
 	stats_node.text = "N/A\nN/A\nN/A\nN/A"
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if visible:
 		set_stat_text()
 
 func _input(event) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and not Globals.clicked:
 		position = event.position
 
 func set_name_text() -> void:
@@ -33,6 +34,9 @@ func set_stat_text() -> void:
 	text += str(snapped(current_country.uranium, 0.01)) + "\n"
 	text += str(snapped(current_country.nukes, 0.01))
 	stats_node.text = text
+
+func click(country: Country, pos: Vector2) -> void:
+	position = pos
 
 func hover(country: Country) -> void:
 	current_country = country
