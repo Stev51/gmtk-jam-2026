@@ -14,7 +14,8 @@ func _process(_delta: float) -> void:
 		check_timeout()
 
 func set_minutes() -> void:
-	minutes = CountryManager.get_highest_influence() / (CountryManager.get_total_influence() / 2.0) * MAX_MINUTES
+	minutes = MAX_MINUTES / 2
+	pass
 
 func check_timeout() -> void:
 	if minutes <= 0.0 and not timed_out_flag:

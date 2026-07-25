@@ -29,10 +29,12 @@ func set_name_text() -> void:
 
 func set_stat_text() -> void:
 	var text = ""
+	'''
 	text += str(snapped(Globals.selected_country.influence, 0.01)) + "\n"
 	text += "$" + str(snapped(Globals.selected_country.money, 0.01)) + "\n"
 	text += str(snapped(Globals.selected_country.uranium, 0.01)) + "\n"
 	text += str(snapped(Globals.selected_country.nukes, 0.01))
+	'''
 	stats_node.text = text
 
 func click(pos: Vector2) -> void:

@@ -6,8 +6,8 @@
 script = ExtResource("1_goot5")
 long_name = "People's Empire of Zhongua"
 short_name = "Zhongua"
+index = 1
 initial_money = 19.5
 initial_uranium = 270500.0
 initial_nukes = 34.0
-initial_influence = 100.0
 metadata/_custom_type_script = "uid://6sqxh8xtoasf"

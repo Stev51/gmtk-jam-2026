@@ -40,9 +40,9 @@ func process_country(country: Country, delta: float) -> void:
 	if country.willingness_to_fire_nukes < 0.0:
 		country.willingness_to_fire_nukes = 0.0
 	for country_b in countries:
-		country.influence[country_b] += country.delta_influence[country_b]
-		if country.influence[country_b] < 0.0:
-			country.influence[country_b] = 0.0
+		country.influence[country_b.index] += country.delta_influence[country_b.index]
+		if country.influence[country_b.index] < 0.0:
+			country.influence[country_b.index] = 0.0
 	#Add math to calculate delta for willingness
 
 #func get_total_influence() -> float:

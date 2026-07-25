@@ -33,6 +33,7 @@ offset_left = -256.0
 offset_top = 11.0
 offset_right = -256.0
 offset_bottom = 11.0
+function_name = "one"
 
 [node name="MenuButton2" parent="Buttons" unique_id=1577535331 instance=ExtResource("2_otq85")]
 layout_mode = 1
@@ -40,6 +41,7 @@ offset_left = -196.0
 offset_top = 12.0
 offset_right = -196.0
 offset_bottom = 12.0
+function_name = "two"
 
 [node name="MenuButton3" parent="Buttons" unique_id=348489687 instance=ExtResource("2_otq85")]
 layout_mode = 1
@@ -47,6 +49,7 @@ offset_left = -137.0
 offset_top = 11.0
 offset_right = -137.0
 offset_bottom = 11.0
+function_name = "three"
 
 [node name="MenuButton4" parent="Buttons" unique_id=1276191837 instance=ExtResource("2_otq85")]
 layout_mode = 1
@@ -54,3 +57,4 @@ offset_left = -79.0
 offset_top = 10.0
 offset_right = -79.0
 offset_bottom = 10.0
+function_name = "four"

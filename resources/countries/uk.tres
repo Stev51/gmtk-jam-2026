@@ -6,7 +6,7 @@
 script = ExtResource("1_bvr0s")
 long_name = "Allied Commonwealth"
 short_name = "AC"
+index = 3
 initial_money = 4.0
 initial_nukes = 120.0
-initial_influence = 100.0
 metadata/_custom_type_script = "uid://6sqxh8xtoasf"

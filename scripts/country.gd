@@ -16,8 +16,9 @@ var delta_influence
 var delta_research_progress
 var delta_willingness_to_fire_nukes
 
-@export var long_name = ""
-@export var short_name = ""
+@export var long_name: String
+@export var short_name: String
+@export var index: int
 
 @export var initial_money = 0.0
 @export var initial_uranium = 0.0
