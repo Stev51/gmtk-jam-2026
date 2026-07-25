@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cac8e5lah8h6o"]
+
+[ext_resource type="Script" uid="uid://bjtxpow1q4i8a" path="res://scripts/menu_hover_box.gd" id="1_kj2uk"]
+
+[node name="MenuHoverBox" type="Control" unique_id=228512387]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_kj2uk")
+
+[node name="Background" type="ColorRect" parent="." unique_id=877384666]
+layout_mode = 0
+offset_left = 20.0
+offset_right = 380.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.16470589, 0.16470589, 0.16470589, 1)
+
+[node name="TitleTextBox" type="RichTextLabel" parent="." unique_id=1424857097]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="DescriptionTextBox" type="RichTextLabel" parent="." unique_id=653899621]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
