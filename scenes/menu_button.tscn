@@ -24,7 +24,7 @@ mouse_behavior_recursive = 2
 mouse_default_cursor_shape = 2
 script = ExtResource("1_xsssc")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=557967043]
+[node name="Icon" type="Sprite2D" parent="." unique_id=557967043]
 
 [node name="Button" type="Button" parent="." unique_id=6124227]
 layout_mode = 0

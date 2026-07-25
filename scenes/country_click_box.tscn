@@ -37,17 +37,26 @@ columns = 4
 
 [node name="MenuButton" parent="ForeignInteractionContainer" unique_id=1409302024 instance=ExtResource("2_otq85")]
 layout_mode = 2
+title = "Button 1"
+description = "Test!"
 
 [node name="MenuButton2" parent="ForeignInteractionContainer" unique_id=1577535331 instance=ExtResource("2_otq85")]
 layout_mode = 2
+title = "Button 2"
+description = "Test!!"
 
 [node name="MenuButton3" parent="ForeignInteractionContainer" unique_id=348489687 instance=ExtResource("2_otq85")]
 layout_mode = 2
+title = "Button 3"
+description = "Test!!!"
 
 [node name="MenuButton4" parent="ForeignInteractionContainer" unique_id=1276191837 instance=ExtResource("2_otq85")]
 layout_mode = 2
+title = "Button 4"
+description = "Test!!!!"
 
 [node name="DomesticInteractionContainer" type="GridContainer" parent="." unique_id=73160943]
+visible = false
 layout_mode = 0
 offset_left = -260.0
 offset_top = 10.0
@@ -59,11 +68,17 @@ theme_override_constants/h_separation = 60
 theme_override_constants/v_separation = 60
 columns = 4
 
-[node name="MenuButton" parent="DomesticInteractionContainer" unique_id=2131231293 instance=ExtResource("2_otq85")]
+[node name="MenuButton" parent="DomesticInteractionContainer" unique_id=1988415623 instance=ExtResource("2_otq85")]
 layout_mode = 2
+title = "Button 1"
+description = "Test!"
 
-[node name="MenuButton2" parent="DomesticInteractionContainer" unique_id=487157338 instance=ExtResource("2_otq85")]
+[node name="MenuButton2" parent="DomesticInteractionContainer" unique_id=184920065 instance=ExtResource("2_otq85")]
 layout_mode = 2
+title = "Button 2"
+description = "Test!!"
 
-[node name="MenuButton3" parent="DomesticInteractionContainer" unique_id=884660579 instance=ExtResource("2_otq85")]
+[node name="MenuButton3" parent="DomesticInteractionContainer" unique_id=477577639 instance=ExtResource("2_otq85")]
 layout_mode = 2
+title = "Button 3"
+description = "Test!!!"
