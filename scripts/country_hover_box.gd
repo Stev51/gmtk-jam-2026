@@ -11,7 +11,9 @@ func _ready() -> void:
 	
 	Globals.country_hover.connect(hover)
 	Globals.country_unhover.connect(unhover)
+	
 	Globals.country_click.connect(click)
+	Globals.country_unclick.connect(unclick)
 	
 	name_node.text = ""
 	stats_node.text = "N/A\nN/A\nN/A\nN/A"
@@ -36,13 +38,22 @@ func set_stat_text() -> void:
 	stats_node.text = text
 
 func click(country: Country, pos: Vector2) -> void:
-	position = pos
-
-func hover(country: Country) -> void:
 	current_country = country
 	set_name_text()
 	set_stat_text()
+	position = pos
 	show()
 
-func unhover() -> void:
+func unclick() -> void:
 	hide()
+
+func hover(country: Country) -> void:
+	if not Globals.clicked:
+		current_country = country
+		set_name_text()
+		set_stat_text()
+		show()
+
+func unhover() -> void:
+	if not Globals.clicked:
+		hide()
