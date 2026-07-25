@@ -23,38 +23,47 @@ offset_bottom = 250.0
 mouse_behavior_recursive = 2
 color = Color(0.16470589, 0.16470589, 0.16470589, 1)
 
-[node name="Buttons" type="Control" parent="." unique_id=243411496]
-anchors_preset = 0
-mouse_behavior_recursive = 2
-
-[node name="MenuButton" parent="Buttons" unique_id=1409302024 instance=ExtResource("2_otq85")]
-layout_mode = 1
-offset_left = -256.0
-offset_top = 11.0
-offset_right = -256.0
-offset_bottom = 11.0
-function_name = "one"
-
-[node name="MenuButton2" parent="Buttons" unique_id=1577535331 instance=ExtResource("2_otq85")]
-layout_mode = 1
-offset_left = -196.0
-offset_top = 12.0
-offset_right = -196.0
-offset_bottom = 12.0
-function_name = "two"
-
-[node name="MenuButton3" parent="Buttons" unique_id=348489687 instance=ExtResource("2_otq85")]
-layout_mode = 1
-offset_left = -137.0
-offset_top = 11.0
-offset_right = -137.0
-offset_bottom = 11.0
-function_name = "three"
-
-[node name="MenuButton4" parent="Buttons" unique_id=1276191837 instance=ExtResource("2_otq85")]
-layout_mode = 1
-offset_left = -79.0
+[node name="ForeignInteractionContainer" type="GridContainer" parent="." unique_id=664369936]
+layout_mode = 0
+offset_left = -260.0
 offset_top = 10.0
-offset_right = -79.0
-offset_bottom = 10.0
-function_name = "four"
+offset_right = -30.0
+offset_bottom = 240.0
+mouse_filter = 0
+mouse_behavior_recursive = 2
+theme_override_constants/h_separation = 60
+theme_override_constants/v_separation = 60
+columns = 4
+
+[node name="MenuButton" parent="ForeignInteractionContainer" unique_id=1409302024 instance=ExtResource("2_otq85")]
+layout_mode = 2
+
+[node name="MenuButton2" parent="ForeignInteractionContainer" unique_id=1577535331 instance=ExtResource("2_otq85")]
+layout_mode = 2
+
+[node name="MenuButton3" parent="ForeignInteractionContainer" unique_id=348489687 instance=ExtResource("2_otq85")]
+layout_mode = 2
+
+[node name="MenuButton4" parent="ForeignInteractionContainer" unique_id=1276191837 instance=ExtResource("2_otq85")]
+layout_mode = 2
+
+[node name="DomesticInteractionContainer" type="GridContainer" parent="." unique_id=73160943]
+layout_mode = 0
+offset_left = -260.0
+offset_top = 10.0
+offset_right = -30.0
+offset_bottom = 240.0
+mouse_filter = 0
+mouse_behavior_recursive = 2
+theme_override_constants/h_separation = 60
+theme_override_constants/v_separation = 60
+columns = 4
+
+[node name="MenuButton" parent="DomesticInteractionContainer" unique_id=2131231293 instance=ExtResource("2_otq85")]
+layout_mode = 2
+
+[node name="MenuButton2" parent="DomesticInteractionContainer" unique_id=487157338 instance=ExtResource("2_otq85")]
+layout_mode = 2
+
+[node name="MenuButton3" parent="DomesticInteractionContainer" unique_id=884660579 instance=ExtResource("2_otq85")]
+layout_mode = 2

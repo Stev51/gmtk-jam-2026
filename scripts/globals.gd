@@ -26,7 +26,7 @@ func _ready() -> void:
 		current_scene.ready.connect(_on_entire_tree_ready)
 
 func _on_entire_tree_ready() -> void:
-	PlayerCountry = CountryManager.countries[0]
+	PlayerCountry = CountryManager.countries[4]
 
 func map_hover(country: Country) -> void:
 	hovered_countries += 1
