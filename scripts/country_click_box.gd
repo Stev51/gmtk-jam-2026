@@ -11,7 +11,7 @@ func _input(event) -> void:
 	if event is InputEventMouseMotion and not Globals.clicked:
 		position = event.position
 
-func click(country: Country, pos: Vector2) -> void:
+func click(pos: Vector2) -> void:
 	position = pos
 	show()
 

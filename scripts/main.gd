@@ -1,16 +1,8 @@
 extends Node2D
 
 func _input(event):
-	
-	if event.is_action_pressed("left_click"):
 		
-		'''
-		if Globals.clicked:
-			Globals.map_unclick()
-		'''
-		pass
-		
-	elif event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause"):
 		
 		if Globals.game_speed == Globals.GameSpeed.PAUSED:
 			Globals.game_speed = Globals.GameSpeed.NORMAL

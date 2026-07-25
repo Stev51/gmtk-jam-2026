@@ -2,10 +2,10 @@ extends Node
 
 enum GameSpeed {PAUSED, NORMAL, FAST}
 
-signal country_hover(country: Country)
+signal country_hover()
 signal country_unhover
 
-signal country_click(country: Country, pos: Vector2)
+signal country_click(pos: Vector2)
 signal country_unclick
 
 var hovered_countries = 0
@@ -15,6 +15,7 @@ var game_speed = GameSpeed.NORMAL
 var map_hoverable = true
 
 var PlayerCountry
+var selected_country
 
 func _ready() -> void:
 	# Fetch the root of the active scene and check if it's already done
@@ -29,7 +30,8 @@ func _on_entire_tree_ready() -> void:
 
 func map_hover(country: Country) -> void:
 	hovered_countries += 1
-	country_hover.emit(country)
+	selected_country = country
+	country_hover.emit()
 
 func map_unhover() -> void:
 	hovered_countries -= 1
@@ -38,7 +40,8 @@ func map_unhover() -> void:
 
 func map_click(country: Country, pos: Vector2) -> void:
 	clicked = true
-	country_click.emit(country, pos)
+	selected_country = country
+	country_click.emit(pos)
 
 func map_unclick() -> void:
 	clicked = false

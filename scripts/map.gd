@@ -5,4 +5,3 @@ func _on_blank_space_clicker_input_event(_viewport: Node, event: InputEvent, _sh
 		if Globals.map_hoverable and Globals.clicked and Globals.hovered_countries <= 0:
 			get_viewport().set_input_as_handled()
 			Globals.map_unclick()
-			print("Clicked blank space")

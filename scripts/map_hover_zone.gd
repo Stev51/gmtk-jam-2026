@@ -34,7 +34,6 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 			get_viewport().set_input_as_handled()
 			Globals.map_click(country, event.position)
 			click_sound_node.play()
-			print("Clicked " + country.short_name)
 
 func _on_mouse_entered() -> void:
 	if Globals.map_hoverable:
