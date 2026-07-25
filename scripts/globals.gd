@@ -14,6 +14,19 @@ var clicked = false
 var game_speed = GameSpeed.NORMAL
 var map_hoverable = true
 
+var PlayerCountry
+
+func _ready() -> void:
+	# Fetch the root of the active scene and check if it's already done
+	var current_scene = get_tree().current_scene
+	if current_scene.is_node_ready():
+		_on_entire_tree_ready()
+	else:
+		current_scene.ready.connect(_on_entire_tree_ready)
+
+func _on_entire_tree_ready() -> void:
+	PlayerCountry = CountryManager.countries[0]
+
 func map_hover(country: Country) -> void:
 	hovered_countries += 1
 	country_hover.emit(country)
