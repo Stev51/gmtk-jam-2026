@@ -8,5 +8,5 @@ long_name = "Allied Commonwealth"
 short_name = "AC"
 initial_money = 4.0
 initial_nukes = 120.0
-initial_influence = 10.0
+initial_influence = 100.0
 metadata/_custom_type_script = "uid://6sqxh8xtoasf"

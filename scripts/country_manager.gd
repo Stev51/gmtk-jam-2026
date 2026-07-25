@@ -9,6 +9,8 @@ var MONEY_TO_URANIUM = 132000.0
 var MONEY_TO_NUKES = 500.0
 var URANIUM_TO_NUKES = 0.05
 
+var DELTA_MOD = 0.1
+
 @export var countries: Array[Country]
 
 func _ready() -> void:
@@ -21,6 +23,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not timed_out_flag and Globals.game_speed != Globals.GameSpeed.PAUSED:
 		
+		delta *= DELTA_MOD
 		if Globals.game_speed == Globals.GameSpeed.FAST:
 			delta *= 2
 		

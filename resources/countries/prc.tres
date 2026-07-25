@@ -9,5 +9,5 @@ short_name = "Zhongua"
 initial_money = 19.5
 initial_uranium = 270500.0
 initial_nukes = 34.0
-initial_influence = 10.0
+initial_influence = 100.0
 metadata/_custom_type_script = "uid://6sqxh8xtoasf"
