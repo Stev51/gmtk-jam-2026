@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c2xgo13ufge3y"]
 
 [ext_resource type="Texture2D" uid="uid://tgr2tm5xin7e" path="res://assets/img/map_background.png" id="1_4xfga"]
+[ext_resource type="Script" uid="uid://d1boftvcrbjr5" path="res://scripts/map.gd" id="1_mo32q"]
 [ext_resource type="PackedScene" uid="uid://drcjb07re8tdb" path="res://scenes/map_hover_zone.tscn" id="2_0cso3"]
 [ext_resource type="Texture2D" uid="uid://cedpykkggh4cr" path="res://assets/img/map_countries/usa_outline.png" id="3_2klcf"]
 [ext_resource type="Texture2D" uid="uid://dqhottqoisv33" path="res://assets/img/map_countries/usa_hover.png" id="4_2lpho"]
@@ -18,11 +19,23 @@
 [ext_resource type="Resource" uid="uid://prc5jhijy4y3" path="res://resources/countries/iran.tres" id="14_m335s"]
 [ext_resource type="Resource" uid="uid://bn8hka7bucwa3" path="res://resources/countries/prc.tres" id="17_sq6bu"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp26k"]
+size = Vector2(1920, 1080)
+
 [node name="Map" type="Node2D" unique_id=2087630376]
+script = ExtResource("1_mo32q")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=704915741]
 texture = ExtResource("1_4xfga")
 centered = false
+
+[node name="BlankSpaceClicker" type="Area2D" parent="." unique_id=205651551]
+z_index = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlankSpaceClicker" unique_id=94083125]
+visible = false
+position = Vector2(960, 540)
+shape = SubResource("RectangleShape2D_jp26k")
 
 [node name="HoverZones" type="Node2D" parent="." unique_id=544995073]
 
@@ -70,3 +83,5 @@ country = ExtResource("17_sq6bu")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoverZones/PRC" unique_id=1240041079]
 visible = false
 polygon = PackedVector2Array(1535, 808, 1530, 835, 1535, 851, 1530, 867, 1498, 876, 1472, 860, 1454, 823, 1455, 805, 1441, 779, 1386, 770, 1356, 766, 1348, 729, 1375, 709, 1429, 707, 1467, 695, 1556, 693, 1591, 660, 1619, 647, 1641, 656, 1639, 675, 1614, 734, 1619, 762, 1614, 781, 1586, 802)
+
+[connection signal="input_event" from="BlankSpaceClicker" to="." method="_on_blank_space_clicker_input_event"]

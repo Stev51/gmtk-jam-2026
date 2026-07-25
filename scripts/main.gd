@@ -4,8 +4,11 @@ func _input(event):
 	
 	if event.is_action_pressed("left_click"):
 		
+		'''
 		if Globals.clicked:
 			Globals.map_unclick()
+		'''
+		pass
 		
 	elif event.is_action_pressed("pause"):
 		
