@@ -2,14 +2,12 @@ extends Node
 
 var timed_out_flag = false
 
-# TEMP VARIABLES FOR DEMONSTRATION PURPOSES #
-var NUKES_TO_INFLUENCE = 2.0
-var INFLUENCE_SCARE_DECREASE = 1.0
+var NUKES_TO_INFLUENCE = 0.05
+var INFLUENCE_SCARE_DECREASE = 10.0
 var INFLUENCE_TO_MONEY = 1.0
-var MONEY_TO_URANIUM = 250.0
+var MONEY_TO_URANIUM = 132000.0
 var MONEY_TO_NUKES = 500.0
-var URANIUM_TO_NUKES = 1.0
-# ----------------------------------------- #
+var URANIUM_TO_NUKES = 0.05
 
 @export var countries: Array[Country]
 
@@ -52,14 +50,18 @@ func process_country(country: Country, total_influence: float, delta: float) -> 
 	
 	country.money += country.influence * INFLUENCE_TO_MONEY * delta
 	
-	while country.uranium >= URANIUM_TO_NUKES and country.money >= MONEY_TO_NUKES:
-		country.nukes += 1.0
-		country.uranium -= URANIUM_TO_NUKES
-		country.money -= MONEY_TO_NUKES
+	if country.uranium >= URANIUM_TO_NUKES or country.money >= MONEY_TO_NUKES:
+		
+		while country.uranium >= URANIUM_TO_NUKES and country.money >= MONEY_TO_NUKES:
+			country.nukes += 1.0
+			country.uranium -= URANIUM_TO_NUKES
+			country.money -= MONEY_TO_NUKES
 	
-	while country.money >= MONEY_TO_URANIUM:
-		country.uranium += 1.0
-		country.money -= MONEY_TO_URANIUM
+	else:
+		
+		while country.money >= MONEY_TO_URANIUM:
+			country.uranium += 1.0
+			country.money -= MONEY_TO_URANIUM
 
 func zero_hour() -> void:
 	timed_out_flag = true

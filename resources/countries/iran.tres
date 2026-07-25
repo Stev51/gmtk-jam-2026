@@ -6,5 +6,7 @@
 script = ExtResource("1_tx6ke")
 long_name = "United Median Republics"
 short_name = "UMR"
-initial_influence = 5.0
+initial_money = 0.4
+initial_uranium = 920600.0
+initial_influence = 10.0
 metadata/_custom_type_script = "uid://6sqxh8xtoasf"

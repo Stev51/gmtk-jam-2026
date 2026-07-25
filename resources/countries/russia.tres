@@ -6,5 +6,8 @@
 script = ExtResource("1_soxxe")
 long_name = "Muscovian Federation"
 short_name = "Muscovia"
-initial_influence = 5.0
+initial_money = 2.6
+initial_uranium = 476600.0
+initial_nukes = 1670.0
+initial_influence = 10.0
 metadata/_custom_type_script = "uid://6sqxh8xtoasf"

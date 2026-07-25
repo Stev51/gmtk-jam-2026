@@ -6,5 +6,8 @@
 script = ExtResource("1_udbac")
 long_name = "Federal Republic of Abiyala"
 short_name = "Abiyala"
-initial_influence = 5.0
+initial_money = 30.7
+initial_uranium = 67800.0
+initial_nukes = 1670.0
+initial_influence = 10.0
 metadata/_custom_type_script = "uid://6sqxh8xtoasf"
