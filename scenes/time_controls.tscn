@@ -41,6 +41,7 @@ centered = false
 layout_mode = 0
 offset_right = 20.0
 offset_bottom = 20.0
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_plykv")
 
 [node name="ButtonX1" type="Control" parent="." unique_id=18336506]
@@ -58,6 +59,7 @@ centered = false
 layout_mode = 0
 offset_right = 20.0
 offset_bottom = 20.0
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_plykv")
 
 [node name="ButtonX2" type="Control" parent="." unique_id=1754167988]
@@ -75,6 +77,7 @@ centered = false
 layout_mode = 0
 offset_right = 20.0
 offset_bottom = 20.0
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_plykv")
 
 [connection signal="pressed" from="ButtonPause/Button" to="." method="_on_pause_button_pressed"]
