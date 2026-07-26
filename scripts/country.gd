@@ -17,6 +17,8 @@ var delta_influence
 var delta_research_progress
 var delta_willingness_to_fire_nukes
 
+var ai_is_busy = false
+
 @export var long_name: String
 @export var short_name: String
 @export var index: int
@@ -71,8 +73,8 @@ const cost_multiplier = 1
 @export var steal_uranium_exponential = 1.05
 @export var steal_uranium_influence_cost = 30
 @export var steal_uranium_uranium_gain = 0.2
-@export var calm_fears_influence_cost = 20
-@export var calm_fears_exponential = 1.1
+@export var calm_fears_influence_cost = 30
+@export var calm_fears_exponential = 1.08
 @export var calm_fears_willingness_decrease = 20
 @export var convince_to_sign_influence_cost = 80
 

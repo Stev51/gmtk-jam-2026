@@ -41,7 +41,8 @@ func _process(delta: float) -> void:
 		if time_since_ai > 3:
 			for country in countries:
 				if country != Globals.PlayerCountry:
-					AiManager.run_npc_ai(country)
+					if country.ai_is_busy == false:
+						AiManager.run_npc_ai(country)
 
 func process_country(country: Country, delta: float) -> void:
 	#Five passive stats: money, uranium, research, willingness, influence

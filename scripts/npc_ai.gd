@@ -18,17 +18,41 @@ var SU_weight = 0.0
 var CF_weight = 0.0
 var Foreign_Pass_weight = 0.0
 
+var RWT_time = 0.0
+var SP_time = 0.0
+var BL_time = 0.0
+var BM_time = 0.0
+var ENC_time = 0.0
+var BN_time = 0.0
+
+var SG_time = 0.0
+var SCP_time = 0.0
+var SD_time = 0.0
+var SOT_time = 0.0
+var SM_time = 0.0
+var SL_time = 0.0
+var SU_time = 0.0
+var CF_time = 0.0
+
 #Called by CountryManager
 func run_npc_ai(country: Country):
 	#calculate weight for each action
 	#0 if it's unaffordable/impossible, then increasing as it "seems favorable"
-	if country.influence[country.index] < country.war_taxes_influence_cost:
-		RWT_weight = 0
+	if country.war_taxes_influence_cost < country.influence[country.index]:
+		RWT_time = (country.war_taxes_influence_cost - country.influence[country.index] ) / country.delta_influence[country.index]
+		if RWT_time > 10.0:
+			RWT_weight = 0
+		else:
+			RWT_weight = 3
 	else:
 		RWT_weight = 5
-		
+	
 	if country.money < country.spread_propaganda_cost:
-		SP_weight = 0
+		SP_time = (country.spread_propaganda_cost - country.money ) / country.delta_money
+		if SP_time > 10.0:
+			SP_weight = 0
+		else:
+			SP_weight = 3
 	else:
 		SP_weight = 5
 		
@@ -59,10 +83,18 @@ func run_npc_ai(country: Country):
 	var weight_partial_sum = RWT_weight
 	#choose one of the following based on weights
 	if weight_target < weight_partial_sum:
+		if country.influence[country.index] < country.war_taxes_influence_cost:
+			country.ai_is_busy = true
+			await get_tree().create_timer(RWT_time).timeout
+			country.ai_is_busy = false
 		country.raise_war_taxes()
 	else:
 		weight_partial_sum += SP_weight
 		if weight_target < weight_partial_sum:
+			if country.money < country.spread_propaganda_cost:
+				country.ai_is_busy = true
+				await get_tree().create_timer(SP_time).timeout
+				country.ai_is_busy = false
 			country.spread_propaganda()
 		else:
 			weight_partial_sum += BL_weight
@@ -129,7 +161,7 @@ func run_npc_ai(country: Country):
 		if country.influence[country_b.index] < country.calm_fears_influence_cost or country_b.willingness_to_fire_nukes < country.calm_fears_willingness_decrease:
 			CF_weight = 0
 		else:
-			CF_weight = 1
+			CF_weight = 0 #disables action for AI
 		
 		Foreign_Pass_weight = 20
 		
