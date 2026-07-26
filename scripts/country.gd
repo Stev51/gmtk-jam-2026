@@ -58,11 +58,11 @@ const cost_multiplier = 1
 @export var gift_influence_gain = 10
 @export var spread_counter_propaganda_cost = 5000*cost_multiplier
 @export var spread_counter_propaganda_exponential = 1.05
-@export var spread_counter_propaganda_delta_influence_enemy_loss = 0.1
+@export var spread_counter_propaganda_delta_influence_enemy_loss = 0.05
 @export var send_diplomat_influence_cost = 10
 @export var send_diplomat_exponential = 1.1
 @export var send_diplomat_delta_influence_gain = 0.1
-@export var spy_on_technology_cost = 5000*cost_multiplier
+@export var spy_on_technology_cost = 6000*cost_multiplier
 @export var sabotage_mine_cost = 7000*cost_multiplier
 @export var sabotage_mine_exponential = 1.1
 @export var sabotage_mine_influence_cost = 30
@@ -182,8 +182,8 @@ func send_diplomat(target: Country) -> void:
 func spy_on_technology(target: Country) -> void:
 	if money >= spy_on_technology_cost:
 		money -= spy_on_technology_cost
-		#Boost progress by half the tech gap, at least 5
-		research_progress += maxf(1, (target.research_progress - research_progress) / 2)
+		#Boost progress by half the tech gap, at least 4
+		research_progress += maxf(4, (target.research_progress - research_progress) / 4)
 
 func sabotage_mine(target: Country) -> void:
 	if money >= sabotage_mine_cost && influence[target.index] >= sabotage_mine_influence_cost && target.mines >= 1:

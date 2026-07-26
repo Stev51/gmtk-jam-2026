@@ -67,7 +67,7 @@ func process_country(country: Country, delta: float) -> void:
 		country.willingness_to_fire_nukes = 0
 		return
 	for country_b in countries:
-		country.delta_willingness_to_fire_nukes += (country.nukes - country_b.nukes) / 5
+		country.delta_willingness_to_fire_nukes += (country.nukes - country_b.nukes)/4
 		country.delta_willingness_to_fire_nukes += (country.influence[country_b.index] - country_b.influence[country.index]) / 1000
 	if abs(country.delta_willingness_to_fire_nukes) >= 1.0:
 		country.delta_willingness_to_fire_nukes = sign(country.delta_willingness_to_fire_nukes)
