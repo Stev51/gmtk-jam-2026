@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 		
 		delta *= DELTA_MOD
 		if Globals.game_speed == Globals.GameSpeed.FAST:
-			delta *= 3
+			delta *= 6
 		
 		var num_countries_signed_armistice = 0
 		for country in countries:
@@ -73,8 +73,12 @@ func process_country(country: Country, delta: float) -> void:
 	if abs(country.delta_willingness_to_fire_nukes) >= 1.0:
 		country.delta_willingness_to_fire_nukes = sign(country.delta_willingness_to_fire_nukes)
 	
+	# Delta willingness to nuke is constantly increasing to force game end
+	country.delta_willingness_to_fire_nukes += 0.000005
+	
 	#Willingness is bounded at zero and one hundred
 	country.willingness_to_fire_nukes += country.delta_willingness_to_fire_nukes * delta
+	
 	if country.willingness_to_fire_nukes < 0.0:
 		country.willingness_to_fire_nukes = 0.0
 	if country.willingness_to_fire_nukes >= 100.0:
