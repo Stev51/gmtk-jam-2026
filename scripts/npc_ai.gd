@@ -193,7 +193,11 @@ func run_npc_ai(country: Country):
 		if country.influence[country_b.index] < country.calm_fears_influence_cost or country_b.willingness_to_fire_nukes < country.calm_fears_willingness_decrease:
 			CF_weight = 0
 		else:
+<<<<<<< HEAD
 			CF_weight = 0 #disables action for AI
+=======
+			CF_weight = 0
+>>>>>>> 8523bb6 (last fixes)
 		
 		Foreign_Pass_weight = 20
 		
