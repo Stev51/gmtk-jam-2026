@@ -9,5 +9,5 @@ short_name = "UMR"
 initial_money = 500.0
 initial_influence = [50.0, 0.0, 0.0, 0.0, 0.0]
 initial_delta_money = 100.0
-initial_delta_influence = [2.0, 0.0, 0.0, 0.0, 0.0]
+initial_delta_influence = [0.5, 0.0, 0.0, 0.0, 0.0]
 metadata/_custom_type_script = "uid://6sqxh8xtoasf"
