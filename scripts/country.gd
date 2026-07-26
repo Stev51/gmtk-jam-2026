@@ -38,6 +38,31 @@ var delta_willingness_to_fire_nukes
 @export var initial_delta_research_progress = 0.0
 @export var initial_delta_willingness_to_fire_nukes = 0.0
 
+@export var war_taxes_influence_cost = 10
+@export var war_taxes_delta_money_gain = 1
+@export var spread_propaganda_cost = 3000
+@export var spread_progaganda_delta_influence_gain = 0.1
+@export var build_lab_cost = 5000
+@export var build_mine_cost = 5000
+@export var nuke_cost = 10000
+@export var gift_cost = 5000
+@export var gift_influence_gain = 10
+@export var spread_counter_propaganda_cost = 5000
+@export var spread_counter_propaganda_delta_influence_enemy_loss = 0.1
+@export var send_diplomat_influence_cost = 10
+@export var send_diplomat_delta_influence_gain = 0.1
+@export var spy_on_technology_cost = 5000
+@export var sabotage_mine_cost = 5000
+@export var sabotage_mine_influence_cost = 30
+@export var sabotage_lab_cost = 5000
+@export var sabotage_lab_influence_cost = 30
+@export var steal_uranium_cost = 5000
+@export var steal_uranium_influence_cost = 30
+@export var steal_uranium_uranium_gain = 0.5
+@export var calm_fears_influence_cost = 20
+@export var calm_fears_willingness_decrease = 20
+@export var convince_to_sign_influence_cost = 80
+
 func init() -> void:
 	reset_resources()
 
@@ -61,24 +86,24 @@ func reset_resources() -> void:
 #Domestic Actions
 
 func raise_war_taxes() -> void:
-	if influence[index] >= 10:
-		influence[index] -= 10
-		delta_money += 1
+	if influence[index] >= war_taxes_influence_cost:
+		influence[index] -= war_taxes_influence_cost
+		delta_money += war_taxes_delta_money_gain
 
 #function called for spreading positive propaganda of own country
 func spread_propaganda() -> void:
-	if money >= 100:
-		money -= 100
-		delta_influence[index] += 0.1
+	if money >= spread_propaganda_cost:
+		money -= spread_propaganda_cost
+		delta_influence[index] += spread_progaganda_delta_influence_gain
 
 func build_lab() -> void:
-	if money >= 1000:
-		money -= 1000
+	if money >= build_lab_cost:
+		money -= build_lab_cost
 		labs += 1
 
 func build_mine() -> void:
-	if money >= 10000:
-		money -= 10000
+	if money >= build_mine_cost:
+		money -= build_mine_cost
 		mines += 1
 
 func establish_nuclear_capabilities() -> void:
@@ -86,8 +111,8 @@ func establish_nuclear_capabilities() -> void:
 		can_build_nukes = true
 
 func build_nuke() -> void:
-	if money >= 1000000 && uranium > 1 && can_build_nukes == true:
-		money -= 1000000
+	if money >= nuke_cost && uranium > 1 && can_build_nukes == true:
+		money -= nuke_cost
 		uranium -= 1
 		nukes += 1
 
@@ -99,54 +124,54 @@ func enforce_armistice() -> void:
 #Foreign Actions
 
 func send_gift(target: Country) -> void:
-	if money >= 10000:
-		money -= 10000
-		influence[target.index] += 20
+	if money >= gift_cost:
+		money -= gift_cost
+		influence[target.index] += gift_influence_gain
 
 #function called for spreading negative propaganda of target country
 func spread_counter_propaganda(target: Country) -> void:
-	if money >= 100:
-		money -= 100
-		target.delta_influence[target.index] -= 0.1
+	if money >= spread_counter_propaganda_cost:
+		money -= spread_counter_propaganda_cost
+		target.delta_influence[target.index] -= spread_counter_propaganda_delta_influence_enemy_loss
 
 func send_diplomat(target: Country) -> void:
-	if influence[index] > 10:
-		influence[index] -= 10
-		delta_influence[target.index] += 0.1
+	if influence[index] > send_diplomat_influence_cost:
+		influence[index] -= send_diplomat_influence_cost
+		delta_influence[target.index] += send_diplomat_delta_influence_gain
 
 func spy_on_technology(target: Country) -> void:
-	if money >= 10000:
-		money -= 10000
+	if money >= spy_on_technology_cost:
+		money -= spy_on_technology_cost
 		#Boost progress by half the tech gap, at least 5
 		research_progress += maxf(5, (target.research_progress - research_progress) / 2)
 
 func sabotage_mine(target: Country) -> void:
-	if money >= 20000 && influence[target.index] >= 30 && target.mines >= 1:
-		money -= 20000
-		influence[target.index] -= 30
+	if money >= sabotage_mine_cost && influence[target.index] >= 30 && target.mines >= 1:
+		money -= sabotage_mine_cost
+		influence[target.index] -= sabotage_mine_influence_cost
 		target.mines -= 1
 
 func sabotage_lab(target: Country) -> void:
-	if money >= 2000 && influence[target.index] >= 30 && target.labs >= 1:
-		money -= 2000
-		influence[target.index] -= 30
+	if money >= sabotage_lab_cost && influence[target.index] >= sabotage_lab_influence_cost && target.labs >= 1:
+		money -= sabotage_lab_cost
+		influence[target.index] -= sabotage_lab_influence_cost
 		target.labs -= 1
 
 func steal_uranium(target: Country) -> void:
-	if money >= 30000 && influence[target.index] >= 30 && target.uranium >= 0.5:
-		money -= 30000
-		influence[target.index] -= 30
-		target.uranium -= 0.5
-		uranium += 0.5
+	if money >= steal_uranium_cost && influence[target.index] >= steal_uranium_influence_cost && target.uranium >= steal_uranium_uranium_gain:
+		money -= steal_uranium_cost
+		influence[target.index] -= steal_uranium_influence_cost
+		target.uranium -= steal_uranium_uranium_gain
+		uranium += steal_uranium_uranium_gain
 
 func calm_fears(target: Country):
-	if influence[target.index] >= 20 && target.willingness_to_fire_nukes >= 20:
-		influence[target.index] -= 20
-		target.willingness_to_fire_nukes -=20
+	if influence[target.index] >= calm_fears_influence_cost && target.willingness_to_fire_nukes >= calm_fears_willingness_decrease:
+		influence[target.index] -= calm_fears_influence_cost
+		target.willingness_to_fire_nukes -= calm_fears_willingness_decrease
 
 #Only available to the player
 func convince_to_sign_armistice(target: Country) -> void:
-	if influence[target.index] >= 80 && target.willingness_to_fire_nukes <= 10 && target.signed_armistice == false:
-		influence[target.index] -= 80
+	if influence[target.index] >= convince_to_sign_influence_cost && target.willingness_to_fire_nukes <= 10 && target.signed_armistice == false:
+		influence[target.index] -= convince_to_sign_influence_cost
 		target.willingness_to_fire_nukes -=10
 		target.signed_armistice = true

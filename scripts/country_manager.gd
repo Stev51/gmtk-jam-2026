@@ -16,6 +16,8 @@ var all_countries_signed_armistice = false
 
 @export var countries: Array[Country]
 
+
+
 func _ready() -> void:
 	
 	for country in countries:
