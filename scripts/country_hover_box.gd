@@ -1,7 +1,8 @@
 extends Control
 
 @onready var name_node = $CountryNameTextBox
-@onready var stats_node = $StatsTextBox
+@onready var stats_node1 = $StatsTextBox
+@onready var stats_node2 = $StatsTextBox2
 
 func _ready() -> void:
 	
@@ -14,7 +15,6 @@ func _ready() -> void:
 	Globals.country_unclick.connect(unclick)
 	
 	name_node.text = ""
-	stats_node.text = "N/A\nN/A\nN/A\nN/A"
 
 func _process(_delta: float) -> void:
 	if visible:
@@ -28,14 +28,19 @@ func set_name_text() -> void:
 	name_node.text = Globals.selected_country.long_name
 
 func set_stat_text() -> void:
-	var text = ""
-	'''
-	text += str(snapped(Globals.selected_country.influence, 0.01)) + "\n"
-	text += "$" + str(snapped(Globals.selected_country.money, 0.01)) + "\n"
-	text += str(snapped(Globals.selected_country.uranium, 0.01)) + "\n"
-	text += str(snapped(Globals.selected_country.nukes, 0.01))
-	'''
-	stats_node.text = text
+	stats_node1.clear()
+	stats_node2.clear()
+	stats_node1.text = ""
+	stats_node2.text = ""
+	
+	stats_node1.append_text("N/A\n")
+	stats_node1.append_text(str(snapped(Globals.selected_country.money, 0.01)) + '\n')
+	stats_node1.append_text(str(snapped(Globals.selected_country.uranium, 0.01)) + '\n')
+	stats_node1.append_text(str(snapped(Globals.selected_country.nukes, 0.01)) + '\n')
+	stats_node2.append_text(str(snapped(Globals.selected_country.research_progress, 0.01)) + '\n')
+	stats_node2.append_text(str(snapped(Globals.selected_country.labs, 0.01)) + '\n')
+	stats_node2.append_text(str(snapped(Globals.selected_country.mines, 0.01)) + '\n')
+	stats_node2.append_text(str(snapped(Globals.selected_country.willingness_to_fire_nukes, 0.01)) + '\n')
 
 func click(pos: Vector2) -> void:
 	set_name_text()
