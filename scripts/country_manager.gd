@@ -11,7 +11,6 @@ var URANIUM_TO_NUKES = 0.05
 
 var DELTA_MOD = 0.1
 
-var num_countries_signed_armistice = 0
 var all_countries_signed_armistice = false
 
 @export var countries: Array[Country]
@@ -30,7 +29,7 @@ func _process(delta: float) -> void:
 		if Globals.game_speed == Globals.GameSpeed.FAST:
 			delta *= 2
 		
-		num_countries_signed_armistice = 0
+		var num_countries_signed_armistice = 0
 		for country in countries:
 			process_country(country, delta)
 			if country.signed_armistice == true:
@@ -40,20 +39,37 @@ func _process(delta: float) -> void:
 
 func process_country(country: Country, delta: float) -> void:
 	#Five passive stats: money, uranium, research, willingness, influence
-	#delta uranium and delta progress should never be negative. Money can go negative lol. Willingness and influence are bounded at zero and one hundred.
+	#delta uranium and delta progress should never be negative. Money can go negative lol
 	country.money += country.delta_money * delta
 	country.uranium += country.mines * 0.005 * delta
 	country.research_progress += country.labs * 0.1 * delta
-	country.willingness_to_fire_nukes += country.delta_willingness_to_fire_nukes * delta
-	if country.willingness_to_fire_nukes < 0.0:
-		country.willingness_to_fire_nukes = 0.0
+	
+	#Influence is bounded at zero and one hundred
 	for country_b in countries:
 		country.influence[country_b.index] += country.delta_influence[country_b.index]
 		if country.influence[country_b.index] < 0.0:
 			country.influence[country_b.index] = 0.0
 		if country.influence[country_b.index] > 100.0:
 			country.influence[country_b.index] = 100.0
-	#Add math to calculate delta for willingness
+			
+	#Calculate change in willingness to fire nukes
+	country.delta_willingness_to_fire_nukes = 0
+	for country_b in countries:
+		country.delta_willingness_to_fire_nukes += (country.nukes - country_b.nukes) / 5
+		country.delta_willingness_to_fire_nukes += (country.influence[country_b.index] - country.influence[country.index]) / 1000
+		country.delta_willingness_to_fire_nukes += (country.money - country_b.money) / 10000000
+	if abs(country.delta_willingness_to_fire_nukes) >= 1.0:
+		country.delta_willingness_to_fire_nukes = sign(country.delta_willingness_to_fire_nukes)
+	
+	#Willingness is bounded at zero and one hundred
+	country.willingness_to_fire_nukes += country.delta_willingness_to_fire_nukes * delta
+	if country.willingness_to_fire_nukes < 0.0:
+		country.willingness_to_fire_nukes = 0.0
+	if country.willingness_to_fire_nukes >= 100.0:
+		if country.index != Globals.PlayerCountry.index && country.nukes >= 1:
+			DoomsdayClock.zero_hour.emit()
+		else:
+			country.willingness_to_fire_nukes = 100.0
 
 #func get_total_influence() -> float:
 	#var count = 0.0
