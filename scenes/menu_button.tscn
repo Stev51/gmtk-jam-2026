@@ -7,6 +7,7 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -25,6 +26,8 @@ mouse_default_cursor_shape = 2
 script = ExtResource("1_xsssc")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=557967043]
+scale = Vector2(0.1, 0.1)
+centered = false
 
 [node name="Button" type="Button" parent="." unique_id=6124227]
 layout_mode = 0

@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://c7xvcgg1qa8yb" path="res://scripts/country_click_box.gd" id="1_i8p2m"]
 [ext_resource type="PackedScene" uid="uid://764vacbqo4wi" path="res://scenes/menu_button.tscn" id="2_otq85"]
+[ext_resource type="Texture2D" uid="uid://dv3x4x6xnoosu" path="res://assets/img/buttons/domestic_actions/button_war_taxes.png" id="3_5638l"]
+[ext_resource type="Texture2D" uid="uid://cpxxgtc7ktxlq" path="res://assets/img/buttons/domestic_actions/button_build_mine.png" id="4_ck6e8"]
+[ext_resource type="Texture2D" uid="uid://cc6gtup03eb3u" path="res://assets/img/buttons/domestic_actions/button_propaganda.png" id="4_g3b3l"]
+[ext_resource type="Texture2D" uid="uid://e885trw1ldyf" path="res://assets/img/buttons/domestic_actions/button_build_lab.png" id="5_d24uu"]
+[ext_resource type="Texture2D" uid="uid://dx7ywayeha86j" path="res://assets/img/buttons/domestic_actions/button_build_nuke.png" id="5_i0dcp"]
+[ext_resource type="Texture2D" uid="uid://mscqv31qcgc" path="res://assets/img/buttons/domestic_actions/button_unlock_nukes.png" id="6_k6deq"]
+[ext_resource type="Texture2D" uid="uid://h44pu0v2dwyj" path="res://assets/img/buttons/domestic_actions/button_enforce_armistice.png" id="9_5tlf7"]
 
 [node name="CountryClickBox" type="Control" unique_id=1626015699]
 layout_mode = 3
@@ -24,38 +31,6 @@ mouse_behavior_recursive = 2
 color = Color(0.16470589, 0.16470589, 0.16470589, 1)
 
 [node name="ForeignInteractionContainer" type="GridContainer" parent="." unique_id=664369936]
-layout_mode = 0
-offset_left = -260.0
-offset_top = 10.0
-offset_right = -30.0
-offset_bottom = 240.0
-mouse_filter = 0
-mouse_behavior_recursive = 2
-theme_override_constants/h_separation = 60
-theme_override_constants/v_separation = 60
-columns = 4
-
-[node name="MenuButton" parent="ForeignInteractionContainer" unique_id=1409302024 instance=ExtResource("2_otq85")]
-layout_mode = 2
-title = "Button 1"
-description = "Test!"
-
-[node name="MenuButton2" parent="ForeignInteractionContainer" unique_id=1577535331 instance=ExtResource("2_otq85")]
-layout_mode = 2
-title = "Button 2"
-description = "Test!!"
-
-[node name="MenuButton3" parent="ForeignInteractionContainer" unique_id=348489687 instance=ExtResource("2_otq85")]
-layout_mode = 2
-title = "Button 3"
-description = "Test!!!"
-
-[node name="MenuButton4" parent="ForeignInteractionContainer" unique_id=1276191837 instance=ExtResource("2_otq85")]
-layout_mode = 2
-title = "Button 4"
-description = "Test!!!!"
-
-[node name="DomesticInteractionContainer" type="GridContainer" parent="." unique_id=73160943]
 visible = false
 layout_mode = 0
 offset_left = -260.0
@@ -68,17 +43,56 @@ theme_override_constants/h_separation = 60
 theme_override_constants/v_separation = 60
 columns = 4
 
-[node name="MenuButton" parent="DomesticInteractionContainer" unique_id=1988415623 instance=ExtResource("2_otq85")]
-layout_mode = 2
-title = "Button 1"
-description = "Test!"
+[node name="DomesticInteractionContainer" type="GridContainer" parent="." unique_id=73160943]
+layout_mode = 0
+offset_left = -260.0
+offset_top = 10.0
+offset_right = -30.0
+offset_bottom = 240.0
+mouse_filter = 0
+mouse_behavior_recursive = 2
+theme_override_constants/h_separation = 60
+theme_override_constants/v_separation = 60
+columns = 4
 
-[node name="MenuButton2" parent="DomesticInteractionContainer" unique_id=184920065 instance=ExtResource("2_otq85")]
+[node name="BuildLabButton" parent="DomesticInteractionContainer" unique_id=924999897 instance=ExtResource("2_otq85")]
 layout_mode = 2
-title = "Button 2"
-description = "Test!!"
+title = "Build Lab"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("5_d24uu")
 
-[node name="MenuButton3" parent="DomesticInteractionContainer" unique_id=477577639 instance=ExtResource("2_otq85")]
+[node name="BuildMineButton" parent="DomesticInteractionContainer" unique_id=1409302024 instance=ExtResource("2_otq85")]
 layout_mode = 2
-title = "Button 3"
-description = "Test!!!"
+title = "Build Mine"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("4_ck6e8")
+
+[node name="BuildNukeButton" parent="DomesticInteractionContainer" unique_id=1537607901 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Build Nuclear Warhead"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("5_i0dcp")
+
+[node name="UnlockNukesButton" parent="DomesticInteractionContainer" unique_id=934982042 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Establish Nuclear Capabilities"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("6_k6deq")
+
+[node name="WarTaxesButton" parent="DomesticInteractionContainer" unique_id=830849317 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Raise War Taxes"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("3_5638l")
+
+[node name="PropagandaButton" parent="DomesticInteractionContainer" unique_id=1664334327 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Spread Propaganda"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("4_g3b3l")
+
+[node name="EnforceArmistice" parent="DomesticInteractionContainer" unique_id=1061289973 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Enforce the Armistice"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("9_5tlf7")
