@@ -9,7 +9,7 @@ func perform_action() -> void:
 
 func get_description() -> String:
 	var text = "Use influence to decrease willingness to fire nukes\n"
-	text += "Cost: "
+	text += "Influence Cost: "
 	if Globals.PlayerCountry.influence[Globals.selected_country.index] >= Globals.PlayerCountry.calm_fears_influence_cost:
 		text += "[color=green]"
 	else:

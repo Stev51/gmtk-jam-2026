@@ -10,7 +10,7 @@ func perform_action() -> void:
 func get_description() -> String:
 	var text = "Spend money and influence to remove 1 lab\n"
 	
-	text += "Money Cost: "
+	text += "Cost: "
 	if Globals.PlayerCountry.money >= Globals.PlayerCountry.sabotage_lab_cost:
 		text += "[color=green]"
 	else:

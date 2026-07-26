@@ -10,7 +10,7 @@ func perform_action() -> void:
 func get_description() -> String:
 	var text = "Spend money and influence to steal uranium\n"
 	
-	text += "Money Cost: "
+	text += "Cost: "
 	if Globals.PlayerCountry.money >= Globals.PlayerCountry.steal_uranium_cost:
 		text += "[color=green]"
 	else:
