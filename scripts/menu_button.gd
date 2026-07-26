@@ -8,8 +8,12 @@ class_name CustomMenuButton extends Control
 
 @onready var icon_node = $Icon
 
+var hovered = false
+
 func _process(_delta: float) -> void:
 	set_icon()
+	if hovered:
+		MenuHoverBox.hover(title, get_description())
 
 func set_icon() -> void:
 	if icon != null:
@@ -37,6 +41,8 @@ func get_description() -> String:
 
 func _on_button_mouse_entered() -> void:
 	MenuHoverBox.hover(title, get_description())
+	hovered = true
 
 func _on_button_mouse_exited() -> void:
 	MenuHoverBox.unhover()
+	hovered = false
