@@ -3,12 +3,21 @@
 [ext_resource type="Script" uid="uid://c7xvcgg1qa8yb" path="res://scripts/country_click_box.gd" id="1_i8p2m"]
 [ext_resource type="PackedScene" uid="uid://764vacbqo4wi" path="res://scenes/menu_button.tscn" id="2_otq85"]
 [ext_resource type="Texture2D" uid="uid://dv3x4x6xnoosu" path="res://assets/img/buttons/domestic_actions/button_war_taxes.png" id="3_5638l"]
+[ext_resource type="Texture2D" uid="uid://cqjnivgm3vhvg" path="res://assets/img/buttons/foreign_actions/button_gift.png" id="3_sk4qh"]
+[ext_resource type="Texture2D" uid="uid://r06s54c18ek7" path="res://assets/img/buttons/foreign_actions/button_counter_propaganda.png" id="4_04vf5"]
 [ext_resource type="Texture2D" uid="uid://cpxxgtc7ktxlq" path="res://assets/img/buttons/domestic_actions/button_build_mine.png" id="4_ck6e8"]
 [ext_resource type="Texture2D" uid="uid://cc6gtup03eb3u" path="res://assets/img/buttons/domestic_actions/button_propaganda.png" id="4_g3b3l"]
 [ext_resource type="Texture2D" uid="uid://e885trw1ldyf" path="res://assets/img/buttons/domestic_actions/button_build_lab.png" id="5_d24uu"]
 [ext_resource type="Texture2D" uid="uid://dx7ywayeha86j" path="res://assets/img/buttons/domestic_actions/button_build_nuke.png" id="5_i0dcp"]
+[ext_resource type="Texture2D" uid="uid://c64oeotos2v60" path="res://assets/img/buttons/foreign_actions/button_diplomacy.png" id="5_vauhn"]
 [ext_resource type="Texture2D" uid="uid://mscqv31qcgc" path="res://assets/img/buttons/domestic_actions/button_unlock_nukes.png" id="6_k6deq"]
+[ext_resource type="Texture2D" uid="uid://dqlrgs6nuickt" path="res://assets/img/buttons/foreign_actions/button_calm_fears.png" id="6_nw1tl"]
+[ext_resource type="Texture2D" uid="uid://4y141jpxjf8f" path="res://assets/img/buttons/foreign_actions/button_spy.png" id="7_a8leu"]
+[ext_resource type="Texture2D" uid="uid://dmof5486uo7sk" path="res://assets/img/buttons/foreign_actions/button_steal_uranium.png" id="8_p7owh"]
 [ext_resource type="Texture2D" uid="uid://h44pu0v2dwyj" path="res://assets/img/buttons/domestic_actions/button_enforce_armistice.png" id="9_5tlf7"]
+[ext_resource type="Texture2D" uid="uid://ckshb67ot4sgv" path="res://assets/img/buttons/foreign_actions/button_sabotage_lab.png" id="9_ox7ll"]
+[ext_resource type="Texture2D" uid="uid://cjd8k456o1a62" path="res://assets/img/buttons/foreign_actions/button_sabotage_mine.png" id="10_e2cns"]
+[ext_resource type="Texture2D" uid="uid://binofxuxpn37f" path="res://assets/img/buttons/foreign_actions/button_sign_armistice.png" id="11_72cvs"]
 
 [node name="CountryClickBox" type="Control" unique_id=1626015699]
 layout_mode = 3
@@ -31,7 +40,6 @@ mouse_behavior_recursive = 2
 color = Color(0.16470589, 0.16470589, 0.16470589, 1)
 
 [node name="ForeignInteractionContainer" type="GridContainer" parent="." unique_id=664369936]
-visible = false
 layout_mode = 0
 offset_left = -260.0
 offset_top = 10.0
@@ -43,7 +51,62 @@ theme_override_constants/h_separation = 60
 theme_override_constants/v_separation = 60
 columns = 4
 
+[node name="GiftButton" parent="ForeignInteractionContainer" unique_id=1409302024 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Gift"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("3_sk4qh")
+
+[node name="CounterPropagandaButton" parent="ForeignInteractionContainer" unique_id=2113352327 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Spread Counter-Propaganda"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("4_04vf5")
+
+[node name="DiplomacyButton" parent="ForeignInteractionContainer" unique_id=1730885236 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Diplomacy"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("5_vauhn")
+
+[node name="CalmFearsButton" parent="ForeignInteractionContainer" unique_id=597616173 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Calm Fears"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("6_nw1tl")
+
+[node name="SpyButton" parent="ForeignInteractionContainer" unique_id=679538241 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Spy on Technology"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("7_a8leu")
+
+[node name="StealUraniumButton" parent="ForeignInteractionContainer" unique_id=1564042078 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Steal Uranium"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("8_p7owh")
+
+[node name="SabotageLabButton" parent="ForeignInteractionContainer" unique_id=1144352115 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Sabotage Lab"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("9_ox7ll")
+
+[node name="SabotageMineButton" parent="ForeignInteractionContainer" unique_id=1164910536 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Sabotage Mine"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("10_e2cns")
+
+[node name="SignArmisticeButton" parent="ForeignInteractionContainer" unique_id=1171549077 instance=ExtResource("2_otq85")]
+layout_mode = 2
+title = "Convince to Sign the Armistice"
+description = "PLACEHOLDER TEXT"
+icon = ExtResource("11_72cvs")
+
 [node name="DomesticInteractionContainer" type="GridContainer" parent="." unique_id=73160943]
+visible = false
 layout_mode = 0
 offset_left = -260.0
 offset_top = 10.0
@@ -61,7 +124,7 @@ title = "Build Lab"
 description = "PLACEHOLDER TEXT"
 icon = ExtResource("5_d24uu")
 
-[node name="BuildMineButton" parent="DomesticInteractionContainer" unique_id=1409302024 instance=ExtResource("2_otq85")]
+[node name="BuildMineButton" parent="DomesticInteractionContainer" unique_id=113123369 instance=ExtResource("2_otq85")]
 layout_mode = 2
 title = "Build Mine"
 description = "PLACEHOLDER TEXT"
