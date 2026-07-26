@@ -146,7 +146,7 @@ func spy_on_technology(target: Country) -> void:
 		research_progress += maxf(5, (target.research_progress - research_progress) / 2)
 
 func sabotage_mine(target: Country) -> void:
-	if money >= sabotage_mine_cost && influence[target.index] >= 30 && target.mines >= 1:
+	if money >= sabotage_mine_cost && influence[target.index] >= sabotage_mine_influence_cost && target.mines >= 1:
 		money -= sabotage_mine_cost
 		influence[target.index] -= sabotage_mine_influence_cost
 		target.mines -= 1

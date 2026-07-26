@@ -22,12 +22,36 @@ var Foreign_Pass_weight = 0.0
 func run_npc_ai(country: Country):
 	#calculate weight for each action
 	#0 if it's unaffordable/impossible, then increasing as it "seems favorable"
-	RWT_weight = 1
-	SP_weight = 1
-	BL_weight = 1
-	BM_weight = 1
-	ENC_weight = 1
-	BN_weight = 1
+	if country.influence[country.index] < country.war_taxes_influence_cost:
+		RWT_weight = 0
+	else:
+		RWT_weight = 1
+		
+	if country.money < country.spread_propaganda_cost:
+		SP_weight = 0
+	else:
+		SP_weight = 1
+		
+	if country.money < country.build_lab_cost or country.can_build_nukes == true:
+		BL_weight = 0
+	else:
+		BL_weight = 2
+		
+	if country.money < country.build_mine_cost:
+		BM_weight = 0
+	else:
+		BM_weight = 2
+	
+	if country.research_progress < 99.9:
+		ENC_weight = 0
+	else:
+		ENC_weight = 1000
+	
+	if country.money < country.nuke_cost or country.uranium < 1.0:
+		BN_weight = 0
+	else:
+		BN_weight = 5
+	
 	Domestic_Pass_weight = 1
 	
 	var sum_domestic_weight = RWT_weight + SP_weight + BL_weight + BM_weight + ENC_weight + BN_weight + Domestic_Pass_weight
@@ -62,14 +86,51 @@ func run_npc_ai(country: Country):
 	for country_b in CountryManager.countries:
 		#calculate weight for each action
 		#0 if it's unaffordable/impossible, then increasing as it "seems favorable"
-		SG_weight = 1
-		SCP_weight = 1
-		SD_weight = 1
-		SOT_weight = 1
-		SM_weight = 1
-		SL_weight = 1
-		SU_weight = 1
-		CF_weight = 1
+		if country.money < country.gift_cost or country.influence[country_b.index] > (100 - country.gift_influence_gain):
+			SG_weight = 0
+		else:
+			SG_weight = 1
+		
+		if country.money < country.spread_counter_propaganda_cost:
+			SCP_weight = 0
+		else:
+			SCP_weight = 1
+		
+		if country.influence[country.index] < country.send_diplomat_influence_cost:
+			SD_weight = 0
+		else:
+			SD_weight = 1
+		
+		if country.money < country.spy_on_technology_cost or country.research_progress < country_b.research_progress:
+			SOT_weight = 0
+		else:
+			SOT_weight = 1
+		
+		if country.money < country.sabotage_mine_cost or country.influence[country_b.index] < country.sabotage_mine_influence_cost or country_b.mines < 1:
+			SM_weight = 0
+		else:
+			SM_weight = 1
+		
+		if country.money < country.sabotage_lab_cost or country.influence[country_b.index] < country.sabotage_lab_influence_cost or country_b.labs < 1:
+			SL_weight = 0
+		else:
+			SL_weight = 1
+		
+		if country.money < country.spread_counter_propaganda_cost:
+			SCP_weight = 0
+		else:
+			SCP_weight = 1
+		
+		if country.money < country.steal_uranium_cost or country.influence[country_b.index] < country.steal_uranium_influence_cost or country_b.uranium < country.steal_uranium_uranium_gain:
+			SU_weight = 0
+		else:
+			SU_weight = 1
+		
+		if country.influence[country_b.index] < country.calm_fears_influence_cost or country_b.willingness_to_fire_nukes < country.calm_fears_willingness_decrease:
+			CF_weight = 0
+		else:
+			CF_weight = 1
+		
 		Foreign_Pass_weight = 1
 		
 		var sum_foreign_weight = SG_weight + SCP_weight + SD_weight + SOT_weight + SM_weight + SL_weight + SU_weight + CF_weight + Foreign_Pass_weight
