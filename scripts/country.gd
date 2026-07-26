@@ -38,7 +38,7 @@ var delta_willingness_to_fire_nukes
 @export var initial_delta_research_progress = 0.0
 @export var initial_delta_willingness_to_fire_nukes = 0.0
 
-@export var cost_multiplier = 1
+const cost_multiplier = 1
 @export var war_taxes_influence_cost = 10
 @export var war_taxes_exponential = 1.2
 @export var war_taxes_delta_money_gain = 20

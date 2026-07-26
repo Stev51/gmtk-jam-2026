@@ -85,16 +85,19 @@ vertical_alignment = 1
 [node name="Uranium" parent="TopBar/ResourceDisplays/GridContainer" unique_id=1717653351 instance=ExtResource("1_mfius")]
 layout_mode = 2
 title = "Uranium"
+description = "Used to produce nukes"
 icon = ExtResource("4_v3be1")
 
 [node name="Nukes" parent="TopBar/ResourceDisplays/GridContainer" unique_id=2050375959 instance=ExtResource("1_mfius")]
 layout_mode = 2
 title = "Nuclear Warheads"
+description = "Nuke count increases willingness of other countries to join the armistace"
 icon = ExtResource("5_xqxrh")
 
 [node name="Research" parent="TopBar/ResourceDisplays/GridContainer" unique_id=635031890 instance=ExtResource("1_mfius")]
 layout_mode = 2
 title = "Research Progress"
+description = "Used to research nuke production"
 icon = ExtResource("6_qupqx")
 
 [node name="BlankSpacer" parent="TopBar/ResourceDisplays/GridContainer" unique_id=984680270 instance=ExtResource("1_mfius")]
@@ -106,11 +109,13 @@ layout_mode = 2
 [node name="Labs" parent="TopBar/ResourceDisplays/GridContainer" unique_id=1588233358 instance=ExtResource("1_mfius")]
 layout_mode = 2
 title = "Labs"
+description = "Increase research production"
 icon = ExtResource("7_jw8q3")
 
 [node name="Mines" parent="TopBar/ResourceDisplays/GridContainer" unique_id=536699157 instance=ExtResource("1_mfius")]
 layout_mode = 2
 title = "Mines"
+description = "Increase uranium production"
 icon = ExtResource("8_bglms")
 
 [node name="Influence" parent="TopBar/ResourceDisplays/GridContainer" unique_id=1027774118 instance=ExtResource("1_mfius")]
