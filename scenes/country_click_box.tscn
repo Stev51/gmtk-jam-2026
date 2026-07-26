@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://cia7op5d30kel" path="res://scripts/menu_buttons/menu_button_spy.gd" id="11_p7owh"]
 [ext_resource type="Script" uid="uid://pj2t054si82r" path="res://scripts/menu_buttons/menu_button_steal_uranium.gd" id="13_ox7ll"]
 [ext_resource type="Script" uid="uid://b00ftrh3d2wtf" path="res://scripts/menu_buttons/menu_button_sabotage_lab.gd" id="15_e2cns"]
+[ext_resource type="Script" uid="uid://dn4ympamdqhbr" path="res://scripts/menu_buttons/menu_button_sabotage_mine.gd" id="17_72cvs"]
 
 [node name="CountryClickBox" type="Control" unique_id=1626015699]
 layout_mode = 3
@@ -109,6 +110,7 @@ icon = ExtResource("9_ox7ll")
 
 [node name="SabotageMineButton" parent="ForeignInteractionContainer" unique_id=1164910536 instance=ExtResource("2_otq85")]
 layout_mode = 2
+script = ExtResource("17_72cvs")
 title = "Sabotage Mine"
 description = "PLACEHOLDER TEXT"
 icon = ExtResource("10_e2cns")
