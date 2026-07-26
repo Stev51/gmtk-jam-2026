@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://ckshb67ot4sgv" path="res://assets/img/buttons/foreign_actions/button_sabotage_lab.png" id="9_ox7ll"]
 [ext_resource type="Texture2D" uid="uid://cjd8k456o1a62" path="res://assets/img/buttons/foreign_actions/button_sabotage_mine.png" id="10_e2cns"]
 [ext_resource type="Texture2D" uid="uid://binofxuxpn37f" path="res://assets/img/buttons/foreign_actions/button_sign_armistice.png" id="11_72cvs"]
+[ext_resource type="Script" uid="uid://cia7op5d30kel" path="res://scripts/menu_buttons/menu_button_spy.gd" id="11_p7owh"]
 
 [node name="CountryClickBox" type="Control" unique_id=1626015699]
 layout_mode = 3
@@ -85,6 +86,7 @@ icon = ExtResource("6_nw1tl")
 
 [node name="SpyButton" parent="ForeignInteractionContainer" unique_id=679538241 instance=ExtResource("2_otq85")]
 layout_mode = 2
+script = ExtResource("11_p7owh")
 title = "Spy on Technology"
 description = "PLACEHOLDER TEXT"
 icon = ExtResource("7_a8leu")
