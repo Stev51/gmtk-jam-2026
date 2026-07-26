@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqliivjp8juuy"
-path="res://.godot/imported/CountdownToExtinction.icon.png-6ad312afccc53ad995a50bf5dd8d8751.ctex"
+uid="uid://khng14421rjs"
+path="res://.godot/imported/countdown.apple-touch-icon.png-20c9f5597c3cc570f3deaa19bcd02d85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://build/CountdownToExtinction.icon.png"
-dest_files=["res://.godot/imported/CountdownToExtinction.icon.png-6ad312afccc53ad995a50bf5dd8d8751.ctex"]
+source_file="res://build/countdown.apple-touch-icon.png"
+dest_files=["res://.godot/imported/countdown.apple-touch-icon.png-20c9f5597c3cc570f3deaa19bcd02d85.ctex"]
 
 [params]
 
