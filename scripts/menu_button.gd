@@ -1,6 +1,5 @@
 @tool
-extends Control
-class_name CustomMenuButton
+class_name CustomMenuButton extends Control
 
 @export var title: String
 @export var description: String
@@ -9,19 +8,19 @@ class_name CustomMenuButton
 
 @onready var icon_node = $Icon
 
-func _ready() -> void:
-	pass
-
 func _process(_delta: float) -> void:
 	set_icon()
 
 func set_icon() -> void:
 	if icon != null:
+		
 		icon_node.texture = icon
-		if not resource_conditions_met():
-			icon_node.modulate = Color(0.267, 0.267, 0.267, 1.0)
-		else:
-			icon_node.modulate = Color(1,1,1,1) # Reset color
+		
+		if not Engine.is_editor_hint():
+			if not resource_conditions_met():
+				icon_node.modulate = Color(0.267, 0.267, 0.267, 1.0)
+			else:
+				icon_node.modulate = Color(1,1,1,1) # Reset color
 
 func _on_button_pressed() -> void:
 	if resource_conditions_met():

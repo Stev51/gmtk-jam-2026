@@ -1,3 +1,4 @@
+@tool
 extends CustomMenuButton
 
 func resource_conditions_met() -> bool:
