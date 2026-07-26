@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ch5aovckp7h8q" path="res://assets/img/icons/icon_labs.png" id="7_jw8q3"]
 [ext_resource type="Texture2D" uid="uid://ccdkptgt6dr7l" path="res://assets/img/icons/icon_mines.png" id="8_bglms"]
 [ext_resource type="Texture2D" uid="uid://dudk5fxat7rpl" path="res://assets/img/icons/icon_influence.png" id="9_xqxrh"]
+[ext_resource type="PackedScene" uid="uid://cvu272j0ovlpy" path="res://scenes/time_controls.tscn" id="11_qupqx"]
 
 [node name="GUI" type="Control" unique_id=363270447]
 z_index = 99
@@ -120,6 +121,13 @@ offset_top = 37.5
 offset_right = 1070.0
 offset_bottom = 77.5
 mouse_filter = 2
+
+[node name="TimeControls" parent="TopBar" unique_id=961636268 instance=ExtResource("11_qupqx")]
+layout_mode = 1
+offset_left = 1045.0
+offset_top = 7.5
+offset_right = -855.0
+offset_bottom = -7.5
 
 [node name="CountryHoverBox" parent="." unique_id=1145551380 instance=ExtResource("2_mfius")]
 visible = false
