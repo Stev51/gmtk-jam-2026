@@ -19,11 +19,12 @@ func get_country_time_to_midnight(country: Country) -> float:
 	return time
 
 func set_minutes() -> void:
-	var lowest = 0.0
+	var lowest = 1000.0
 	for country in CountryManager.countries:
 		if get_country_time_to_midnight(country) < lowest:
 			lowest = get_country_time_to_midnight(country)
 	minutes = lowest
+	print(minutes)
 
 func _on_zero_hour():
 	timed_out_flag = true
