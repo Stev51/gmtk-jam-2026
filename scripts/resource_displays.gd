@@ -9,10 +9,10 @@ extends Control
 @onready var influence_node = $GridContainer/Influence
 
 func _process(_delta: float) -> void:
-		money_node.set_text("$" + str(int(Globals.PlayerCountry.money)))
-		uranium_node.set_text(str(int(Globals.PlayerCountry.uranium)))
+		money_node.set_text("$" + str(snapped(Globals.PlayerCountry.money, 0.01)))
+		uranium_node.set_text(str(snapped(Globals.PlayerCountry.uranium, 0.01)))
 		nukes_node.set_text(str(int(Globals.PlayerCountry.nukes)))
-		research_node.set_text(str(int(Globals.PlayerCountry.research_progress)))
+		research_node.set_text(str(snapped(Globals.PlayerCountry.research_progress, 0.01)))
 		labs_node.set_text(str(int(Globals.PlayerCountry.labs)))
 		mines_node.set_text(str(int(Globals.PlayerCountry.mines)))
-		influence_node.set_text(str(Globals.PlayerCountry.influence[Globals.PlayerCountry.index]))
+		influence_node.set_text(str(snapped(Globals.PlayerCountry.influence[Globals.PlayerCountry.index], 0.01)))
