@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://pj2t054si82r" path="res://scripts/menu_buttons/menu_button_steal_uranium.gd" id="13_ox7ll"]
 [ext_resource type="Script" uid="uid://b00ftrh3d2wtf" path="res://scripts/menu_buttons/menu_button_sabotage_lab.gd" id="15_e2cns"]
 [ext_resource type="Script" uid="uid://dn4ympamdqhbr" path="res://scripts/menu_buttons/menu_button_sabotage_mine.gd" id="17_72cvs"]
+[ext_resource type="Script" uid="uid://b20x8mo2m0vtv" path="res://scripts/menu_buttons/menu_button_sign_armistice.gd" id="19_xgk60"]
 
 [node name="CountryClickBox" type="Control" unique_id=1626015699]
 layout_mode = 3
@@ -117,6 +118,7 @@ icon = ExtResource("10_e2cns")
 
 [node name="SignArmisticeButton" parent="ForeignInteractionContainer" unique_id=1171549077 instance=ExtResource("2_otq85")]
 layout_mode = 2
+script = ExtResource("19_xgk60")
 title = "Convince to Sign the Armistice"
 description = "PLACEHOLDER TEXT"
 icon = ExtResource("11_72cvs")
