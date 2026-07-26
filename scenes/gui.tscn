@@ -68,6 +68,20 @@ layout_mode = 2
 title = "Money"
 icon = ExtResource("3_08a8y")
 
+[node name="DeltaLabel" type="RichTextLabel" parent="TopBar/ResourceDisplays/GridContainer/Money" unique_id=921013858]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 42.0
+offset_right = 225.0
+offset_bottom = 70.0
+theme_override_font_sizes/italics_font_size = 20
+bbcode_enabled = true
+text = "[i]+ 0.0 / s"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
 [node name="Uranium" parent="TopBar/ResourceDisplays/GridContainer" unique_id=1717653351 instance=ExtResource("1_mfius")]
 layout_mode = 2
 title = "Uranium"
@@ -104,6 +118,20 @@ layout_mode = 2
 title = "Self-Influence"
 description = "Your influence on your own country."
 icon = ExtResource("9_xqxrh")
+
+[node name="DeltaLabel" type="RichTextLabel" parent="TopBar/ResourceDisplays/GridContainer/Influence" unique_id=1375941907]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 42.0
+offset_right = 225.0
+offset_bottom = 70.0
+theme_override_font_sizes/italics_font_size = 20
+bbcode_enabled = true
+text = "[i]+ 0.0 / s"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
 
 [node name="ClockDisplay" parent="TopBar" unique_id=1149426984 instance=ExtResource("1_efmwq")]
 layout_mode = 1

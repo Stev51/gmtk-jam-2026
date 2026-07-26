@@ -27,6 +27,13 @@
 [ext_resource type="Script" uid="uid://b00ftrh3d2wtf" path="res://scripts/menu_buttons/menu_button_sabotage_lab.gd" id="15_e2cns"]
 [ext_resource type="Script" uid="uid://dn4ympamdqhbr" path="res://scripts/menu_buttons/menu_button_sabotage_mine.gd" id="17_72cvs"]
 [ext_resource type="Script" uid="uid://b20x8mo2m0vtv" path="res://scripts/menu_buttons/menu_button_sign_armistice.gd" id="19_xgk60"]
+[ext_resource type="Script" uid="uid://bu46xulroorqf" path="res://scripts/menu_buttons/menu_button_build_lab.gd" id="21_7i4it"]
+[ext_resource type="Script" uid="uid://csnef7c8juxx7" path="res://scripts/menu_buttons/menu_button_build_mine.gd" id="23_1ntmu"]
+[ext_resource type="Script" uid="uid://dyek68w415ddq" path="res://scripts/menu_buttons/menu_button_build_nuke.gd" id="25_6ygq5"]
+[ext_resource type="Script" uid="uid://dh46bo780ge03" path="res://scripts/menu_buttons/menu_button_unlock_nukes.gd" id="27_pqrwx"]
+[ext_resource type="Script" uid="uid://cicjos7u1pje0" path="res://scripts/menu_buttons/menu_button_war_taxes.gd" id="29_t3dxu"]
+[ext_resource type="Script" uid="uid://cgnr7asrvkc2x" path="res://scripts/menu_buttons/menu_button_propaganda.gd" id="31_qalmt"]
+[ext_resource type="Script" uid="uid://c48lngtqpq1f3" path="res://scripts/menu_buttons/menu_button_enforce_armistice.gd" id="33_lwwr5"]
 
 [node name="CountryClickBox" type="Control" unique_id=1626015699]
 layout_mode = 3
@@ -49,6 +56,7 @@ mouse_behavior_recursive = 2
 color = Color(0.16470589, 0.16470589, 0.16470589, 1)
 
 [node name="ForeignInteractionContainer" type="GridContainer" parent="." unique_id=664369936]
+visible = false
 layout_mode = 0
 offset_left = -260.0
 offset_top = 10.0
@@ -124,7 +132,6 @@ description = "PLACEHOLDER TEXT"
 icon = ExtResource("11_72cvs")
 
 [node name="DomesticInteractionContainer" type="GridContainer" parent="." unique_id=73160943]
-visible = false
 layout_mode = 0
 offset_left = -260.0
 offset_top = 10.0
@@ -138,42 +145,49 @@ columns = 4
 
 [node name="BuildLabButton" parent="DomesticInteractionContainer" unique_id=924999897 instance=ExtResource("2_otq85")]
 layout_mode = 2
+script = ExtResource("21_7i4it")
 title = "Build Lab"
 description = "PLACEHOLDER TEXT"
 icon = ExtResource("5_d24uu")
 
 [node name="BuildMineButton" parent="DomesticInteractionContainer" unique_id=113123369 instance=ExtResource("2_otq85")]
 layout_mode = 2
+script = ExtResource("23_1ntmu")
 title = "Build Mine"
 description = "PLACEHOLDER TEXT"
 icon = ExtResource("4_ck6e8")
 
 [node name="BuildNukeButton" parent="DomesticInteractionContainer" unique_id=1537607901 instance=ExtResource("2_otq85")]
 layout_mode = 2
+script = ExtResource("25_6ygq5")
 title = "Build Nuclear Warhead"
 description = "PLACEHOLDER TEXT"
 icon = ExtResource("5_i0dcp")
 
 [node name="UnlockNukesButton" parent="DomesticInteractionContainer" unique_id=934982042 instance=ExtResource("2_otq85")]
 layout_mode = 2
+script = ExtResource("27_pqrwx")
 title = "Establish Nuclear Capabilities"
 description = "PLACEHOLDER TEXT"
 icon = ExtResource("6_k6deq")
 
 [node name="WarTaxesButton" parent="DomesticInteractionContainer" unique_id=830849317 instance=ExtResource("2_otq85")]
 layout_mode = 2
+script = ExtResource("29_t3dxu")
 title = "Raise War Taxes"
 description = "PLACEHOLDER TEXT"
 icon = ExtResource("3_5638l")
 
 [node name="PropagandaButton" parent="DomesticInteractionContainer" unique_id=1664334327 instance=ExtResource("2_otq85")]
 layout_mode = 2
+script = ExtResource("31_qalmt")
 title = "Spread Propaganda"
 description = "PLACEHOLDER TEXT"
 icon = ExtResource("4_g3b3l")
 
 [node name="EnforceArmistice" parent="DomesticInteractionContainer" unique_id=1061289973 instance=ExtResource("2_otq85")]
 layout_mode = 2
+script = ExtResource("33_lwwr5")
 title = "Enforce the Armistice"
 description = "PLACEHOLDER TEXT"
 icon = ExtResource("9_5tlf7")

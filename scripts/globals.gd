@@ -25,7 +25,10 @@ func _ready() -> void:
 	else:
 		current_scene.ready.connect(_on_entire_tree_ready)
 
-func _on_entire_tree_ready() -> void:
+func _on_entire_tree_ready():
+	pass
+
+func country_init() -> void:
 	PlayerCountry = CountryManager.countries[4]
 	selected_country = CountryManager.countries[0]
 
