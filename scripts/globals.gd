@@ -29,6 +29,7 @@ func _on_entire_tree_ready():
 	pass
 
 func country_init() -> void:
+	
 	PlayerCountry = CountryManager.countries[4]
 	selected_country = CountryManager.countries[0]
 

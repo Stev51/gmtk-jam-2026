@@ -4,8 +4,11 @@ var win_screen_scene = preload("res://scenes/win_screen.tscn")
 var lose_screen_scene = preload("res://scenes/lose_screen.tscn")
 
 func _ready() -> void:
+	
 	DoomsdayClock.infinite_hour.connect(win_game)
 	DoomsdayClock.zero_hour.connect(lose_game)
+	
+	Globals.PlayerCountry.signed_armistice = true
 
 func _input(event):
 		

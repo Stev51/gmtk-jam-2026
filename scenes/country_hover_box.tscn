@@ -16,7 +16,7 @@ script = ExtResource("1_nn8mf")
 layout_mode = 0
 offset_left = 20.0
 offset_right = 380.0
-offset_bottom = 168.0
+offset_bottom = 225.0
 mouse_filter = 2
 color = Color(0.16470589, 0.16470589, 0.16470589, 1)
 
@@ -87,3 +87,16 @@ text = "N/A
 N/A
 N/A
 N/A"
+
+[node name="StatsTextBox3" type="RichTextLabel" parent="." unique_id=1328829282]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 160.0
+offset_right = 370.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
