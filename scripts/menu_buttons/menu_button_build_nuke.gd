@@ -5,7 +5,7 @@ func resource_conditions_met() -> bool:
 	return (Globals.PlayerCountry.money >= Globals.PlayerCountry.nuke_cost and Globals.PlayerCountry.uranium > 1 and Globals.PlayerCountry.can_build_nukes == true)
 
 func perform_action() -> void:
-	Globals.PlayerCountry.build_lab()
+	Globals.PlayerCountry.build_nuke()
 
 func get_description() -> String:
 	var text = "Spend money to gain 1 nuke. Requires nuclear capabilities.\n"

@@ -68,13 +68,12 @@ func process_country(country: Country, delta: float) -> void:
 		return
 	for country_b in countries:
 		country.delta_willingness_to_fire_nukes += (country.nukes - country_b.nukes) / 5
-		country.delta_willingness_to_fire_nukes += (country.influence[country_b.index] - country.influence[country.index]) / 1000
-		country.delta_willingness_to_fire_nukes += (country.money - country_b.money) / 10000000
+		country.delta_willingness_to_fire_nukes += (country.influence[country_b.index] - country_b.influence[country.index]) / 1000
 	if abs(country.delta_willingness_to_fire_nukes) >= 1.0:
 		country.delta_willingness_to_fire_nukes = sign(country.delta_willingness_to_fire_nukes)
 	
 	# Delta willingness to nuke is constantly increasing to force game end
-	country.delta_willingness_to_fire_nukes += 0.000005
+	# country.delta_willingness_to_fire_nukes += 0.000005
 	
 	#Willingness is bounded at zero and one hundred
 	country.willingness_to_fire_nukes += country.delta_willingness_to_fire_nukes * delta
