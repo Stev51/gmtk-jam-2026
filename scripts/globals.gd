@@ -30,7 +30,8 @@ func _on_entire_tree_ready() -> void:
 
 func map_hover(country: Country) -> void:
 	hovered_countries += 1
-	selected_country = country
+	if not clicked:
+		selected_country = country
 	country_hover.emit()
 
 func map_unhover() -> void:

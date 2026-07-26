@@ -28,6 +28,7 @@ func set_name_text() -> void:
 	name_node.text = Globals.selected_country.long_name
 
 func set_stat_text() -> void:
+	
 	stats_node1.clear()
 	stats_node2.clear()
 	stats_node1.text = ""
