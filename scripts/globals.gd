@@ -11,7 +11,7 @@ signal country_unclick
 var hovered_countries = 0
 var clicked = false
 
-var game_speed = GameSpeed.NORMAL
+var game_speed = GameSpeed.PAUSED
 var map_hoverable = true
 
 var PlayerCountry

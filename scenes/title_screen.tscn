@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bw4rnt3fj624v"]
+
+[ext_resource type="Script" uid="uid://bxdatfdnvt1fp" path="res://scripts/title_screen.gd" id="1_fgkus"]
+
+[node name="TitleScreen" type="Node2D" unique_id=609619238]
+script = ExtResource("1_fgkus")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1103859405]
+centered = false
+
+[node name="TitleText" type="RichTextLabel" parent="." unique_id=961065942]
+offset_right = 1920.0
+offset_bottom = 436.0
+theme_override_font_sizes/bold_font_size = 100
+bbcode_enabled = true
+text = "[b]Countdown to Extinction"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="." unique_id=678217695]
+offset_left = 785.0
+offset_top = 600.0
+offset_right = 1135.0
+offset_bottom = 700.0
+theme_override_font_sizes/font_size = 56
+text = "Start Game"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
