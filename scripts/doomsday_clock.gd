@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 		set_minutes()
 		#check_timeout()
 
-func get_country_time_to_midnight(country) -> float:
+func get_country_time_to_midnight(country: Country) -> float:
 	var time = minf(720, (100 - country.willingness_to_fire_nukes) / max(country.delta_willingness_to_fire_nukes, 0.01))
 	return time
 
