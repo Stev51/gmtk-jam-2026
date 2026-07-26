@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GMTK Jam 2026"
+config/name="Countdown to Extinction"
 run/main_scene="uid://bw4rnt3fj624v"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
@@ -21,6 +21,7 @@ DoomsdayClock="*uid://b6f5c405e45r0"
 CountryManager="*uid://p5ghfysoscyh"
 MenuHoverBox="*uid://cac8e5lah8h6o"
 AiManager="*uid://bpyihb3u6evs3"
+Music="*uid://gvthvo4crh2f"
 
 [display]
 
