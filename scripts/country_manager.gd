@@ -10,6 +10,7 @@ var MONEY_TO_NUKES = 500.0
 var URANIUM_TO_NUKES = 0.05
 
 var DELTA_MOD = 0.1
+var time_since_ai = 0.0
 
 var all_countries_signed_armistice = false
 
@@ -36,6 +37,13 @@ func _process(delta: float) -> void:
 				num_countries_signed_armistice += 1
 		if num_countries_signed_armistice == 4:
 			all_countries_signed_armistice = true
+		
+		#run ais every few delta-seconds
+		time_since_ai += delta
+		if time_since_ai > 3:
+			for country in countries:
+				if country != Globals.PlayerCountry:
+					AiManager.run_npc_ai(country)
 
 func process_country(country: Country, delta: float) -> void:
 	#Five passive stats: money, uranium, research, willingness, influence
@@ -43,6 +51,8 @@ func process_country(country: Country, delta: float) -> void:
 	country.money += country.delta_money * delta
 	country.uranium += country.mines * 0.005 * delta
 	country.research_progress += country.labs * 0.1 * delta
+	if country.research_progress > 100:
+		country.research_progress = 100.0
 	
 	#Influence is bounded at zero and one hundred
 	for country_b in countries:

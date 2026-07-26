@@ -140,9 +140,9 @@ func steal_uranium(target: Country) -> void:
 		uranium += 0.5
 
 func calm_fears(target: Country):
-	if influence[target.index] >= 20 && target.willingness_to_use_nukes >= 20:
+	if influence[target.index] >= 20 && target.willingness_to_fire_nukes >= 20:
 		influence[target.index] -= 20
-		target.willingness_to_use_nukes -=20
+		target.willingness_to_fire_nukes -=20
 
 #Only available to the player
 func convince_to_sign_armistice(target: Country) -> void:

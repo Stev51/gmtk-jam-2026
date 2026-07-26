@@ -18,9 +18,7 @@ var SU_weight = 0.0
 var CF_weight = 0.0
 var Foreign_Pass_weight = 0.0
 
-#Need global timer to sequentially call this on all non-player countries, every few delta-seconds
-
-#main function
+#Called by CountryManager
 func run_npc_ai(country: Country):
 	#calculate weight for each action
 	#0 if it's unaffordable/impossible, then increasing as it "seems favorable"
