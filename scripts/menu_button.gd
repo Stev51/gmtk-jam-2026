@@ -44,5 +44,5 @@ func _on_button_mouse_entered() -> void:
 	hovered = true
 
 func _on_button_mouse_exited() -> void:
-	MenuHoverBox.unhover()
 	hovered = false
+	MenuHoverBox.unhover()

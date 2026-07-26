@@ -24,7 +24,6 @@ func set_minutes() -> void:
 		if get_country_time_to_midnight(country) < lowest:
 			lowest = get_country_time_to_midnight(country)
 	minutes = lowest
-	print(minutes)
 
 func _on_zero_hour():
 	timed_out_flag = true
