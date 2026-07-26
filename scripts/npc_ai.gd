@@ -57,22 +57,38 @@ func run_npc_ai(country: Country):
 		SP_weight = 5
 		
 	if country.money < country.build_lab_cost or country.can_build_nukes == true:
-		BL_weight = 0
+		BL_time = (country.build_lab_cost - country.money) / country.delta_money
+		if BL_time > 10.0 or country.can_build_nukes == true:
+			BL_weight = 0
+		else:
+			BL_weight = 1
 	else:
 		BL_weight = 2
 		
 	if country.money < country.build_mine_cost:
-		BM_weight = 0
+		BM_time = (country.build_lab_cost - country.money) / country.delta_money
+		if BM_time > 10.0:
+			BM_weight = 0
+		else:
+			BM_weight = 1
 	else:
 		BM_weight = 2
 	
-	if country.research_progress < 99.9:
-		ENC_weight = 0
+	if country.research_progress < 99.9 or country.can_build_nukes == true:
+		ENC_time = (100 - country.research_progress) / (country.labs * 0.05)
+		if ENC_time > 10.0:
+			ENC_weight = 0
+		else:
+			ENC_weight = 5
 	else:
 		ENC_weight = 1000
 	
 	if country.money < country.nuke_cost or country.uranium < 1.0:
-		BN_weight = 0
+		BN_time = maxf((country.nuke_cost - country.money) / country.delta_money, (1 - country.uranium) / (country.mines * 0.001))
+		if BN_time > 10.0:
+			BN_weight = 0
+		else:
+			BN_weight = 4
 	else:
 		BN_weight = 5
 	
@@ -99,18 +115,34 @@ func run_npc_ai(country: Country):
 		else:
 			weight_partial_sum += BL_weight
 			if weight_target < weight_partial_sum:
+				if country.money < country.build_lab_cost:
+					country.ai_is_busy = true
+					await get_tree().create_timer(BL_time).timeout
+					country.ai_is_busy = false
 				country.build_lab()
 			else:
 				weight_partial_sum += BM_weight
 				if weight_target < weight_partial_sum:
+					if country.money < country.build_mine_cost:
+						country.ai_is_busy = true
+						await get_tree().create_timer(BM_time).timeout
+						country.ai_is_busy = false
 					country.build_mine()
 				else:
 					weight_partial_sum += ENC_weight
 					if weight_target < weight_partial_sum:
+						if country.research_progress < 99.95:
+							country.ai_is_busy = true
+							await get_tree().create_timer(ENC_time).timeout
+							country.ai_is_busy = false
 						country.establish_nuclear_capabilities()
 					else:
 						weight_partial_sum += BN_weight
 						if weight_target < weight_partial_sum:
+							if country.money < country.nuke_cost or country.uranium < 1:
+								country.ai_is_busy = true
+								await get_tree().create_timer(BN_time).timeout
+								country.ai_is_busy = false
 							country.build_nuke()
 						else:
 							pass
