@@ -11,6 +11,9 @@ var URANIUM_TO_NUKES = 0.05
 
 var DELTA_MOD = 0.1
 
+var num_countries_signed_armistice = 0
+var all_countries_signed_armistice = false
+
 @export var countries: Array[Country]
 
 func _ready() -> void:
@@ -27,15 +30,20 @@ func _process(delta: float) -> void:
 		if Globals.game_speed == Globals.GameSpeed.FAST:
 			delta *= 2
 		
+		num_countries_signed_armistice = 0
 		for country in countries:
 			process_country(country, delta)
+			if country.signed_armistice == true:
+				num_countries_signed_armistice += 1
+		if num_countries_signed_armistice == 4:
+			all_countries_signed_armistice = true
 
 func process_country(country: Country, delta: float) -> void:
 	#Five passive stats: money, uranium, research, willingness, influence
-	#delta uranium and delta progress should never be negative. Money can go negative lol. Willingness and influence are bounded at zero.
+	#delta uranium and delta progress should never be negative. Money can go negative lol. Willingness and influence are bounded at zero and one hundred.
 	country.money += country.delta_money * delta
-	country.uranium += country.delta_uranium * delta
-	country.research_progress += country.delta_research_progress * delta
+	country.uranium += country.mines * 0.005 * delta
+	country.research_progress += country.labs * 0.1 * delta
 	country.willingness_to_fire_nukes += country.delta_willingness_to_fire_nukes * delta
 	if country.willingness_to_fire_nukes < 0.0:
 		country.willingness_to_fire_nukes = 0.0
@@ -43,6 +51,8 @@ func process_country(country: Country, delta: float) -> void:
 		country.influence[country_b.index] += country.delta_influence[country_b.index]
 		if country.influence[country_b.index] < 0.0:
 			country.influence[country_b.index] = 0.0
+		if country.influence[country_b.index] > 100.0:
+			country.influence[country_b.index] = 100.0
 	#Add math to calculate delta for willingness
 
 #func get_total_influence() -> float:

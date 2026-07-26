@@ -1,6 +1,7 @@
 extends Node
 
 signal zero_hour
+signal infinite_hour
 
 var MAX_MINUTES = 720.0
 var START_MINUTES = MAX_MINUTES
