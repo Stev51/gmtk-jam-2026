@@ -1,10 +1,21 @@
+@tool
 extends Control
 
-@onready var money_node = $Money/ResourceCount
-@onready var uranium_node = $Uranium/ResourceCount
-@onready var nukes_node = $Nukes/ResourceCount
+@export var icon: Texture2D
+
+@onready var count_node = $ResourceCount
+@onready var sprite_node = $ResourceSprite
+
+func _ready() -> void:
+	set_icon()
 
 func _process(_delta: float) -> void:
-		money_node.text = str(int(Globals.PlayerCountry.money))
-		uranium_node.text = str(int(Globals.PlayerCountry.uranium))
-		nukes_node.text = str(int(Globals.PlayerCountry.nukes))
+	if Engine.is_editor_hint():
+		set_icon()
+
+func set_icon() -> void:
+	if icon != null:
+		sprite_node.texture = icon
+
+func set_text(text: String) -> void:
+	count_node.text = text
