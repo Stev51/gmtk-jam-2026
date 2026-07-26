@@ -52,6 +52,7 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [node name="LoseScreen" type="Node2D" unique_id=2065586147]
+z_index = 200
 script = ExtResource("1_1n1m7")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2116441171]

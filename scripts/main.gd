@@ -1,5 +1,12 @@
 extends Node2D
 
+var win_screen_scene = preload("res://scenes/win_screen.tscn")
+var lose_screen_scene = preload("res://scenes/lose_screen.tscn")
+
+func _ready() -> void:
+	DoomsdayClock.infinite_hour.connect(win_game)
+	DoomsdayClock.zero_hour.connect(lose_game)
+
 func _input(event):
 		
 	if event.is_action_pressed("pause"):
@@ -16,3 +23,9 @@ func _input(event):
 	elif event.is_action_pressed("x2_speed"):
 		
 		Globals.game_speed = Globals.GameSpeed.FAST
+
+func win_game() -> void:
+	add_child(win_screen_scene.instantiate())
+
+func lose_game() -> void:
+	add_child(lose_screen_scene.instantiate())
