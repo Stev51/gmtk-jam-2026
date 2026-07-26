@@ -2,12 +2,7 @@ extends Node
 
 var timed_out_flag = false
 
-var NUKES_TO_INFLUENCE = 0.05
-var INFLUENCE_WILLINGNESS_DECREASE = 10.0
-var INFLUENCE_TO_MONEY = 1.0
-var MONEY_TO_URANIUM = 132000.0
-var MONEY_TO_NUKES = 500.0
-var URANIUM_TO_NUKES = 0.05
+
 
 var DELTA_MOD = 1
 var time_since_ai = 0.0
@@ -59,7 +54,7 @@ func process_country(country: Country, delta: float) -> void:
 	
 	#Influence is bounded at zero and one hundred
 	for country_b in countries:
-		country.influence[country_b.index] += country.delta_influence[country_b.index]
+		country.influence[country_b.index] += country.delta_influence[country_b.index] * delta
 		if country.influence[country_b.index] < 0.0:
 			country.influence[country_b.index] = 0.0
 		if country.influence[country_b.index] > 100.0:

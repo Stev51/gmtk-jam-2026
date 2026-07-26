@@ -40,7 +40,7 @@ var delta_willingness_to_fire_nukes
 
 @export var war_taxes_influence_cost = 10
 @export var war_taxes_exponential = 1.2
-@export var war_taxes_delta_money_gain = 1
+@export var war_taxes_delta_money_gain = 20
 @export var spread_propaganda_cost = 3000
 @export var spread_propaganda_exponential = 1.05
 @export var spread_progaganda_delta_influence_gain = 0.1
@@ -57,6 +57,7 @@ var delta_willingness_to_fire_nukes
 @export var spread_counter_propaganda_exponential = 1.05
 @export var spread_counter_propaganda_delta_influence_enemy_loss = 0.1
 @export var send_diplomat_influence_cost = 10
+@export var send_diplomat_exponential = 1.1
 @export var send_diplomat_delta_influence_gain = 0.1
 @export var spy_on_technology_cost = 5000
 @export var sabotage_mine_cost = 7000
@@ -88,6 +89,7 @@ func init() -> void:
 		nuke_exponential = (nuke_exponential - 1)*ai_exponential_handicap + 1
 		gift_exponential = (gift_exponential - 1)*ai_exponential_handicap + 1
 		spread_counter_propaganda_exponential = (spread_counter_propaganda_exponential - 1)*ai_exponential_handicap + 1
+		send_diplomat_exponential = (send_diplomat_exponential - 1)*ai_exponential_handicap + 1
 		sabotage_mine_exponential = (sabotage_mine_exponential - 1)*ai_exponential_handicap + 1
 		sabotage_lab_exponential = (sabotage_lab_exponential - 1)*ai_exponential_handicap + 1
 		steal_uranium_exponential = (steal_uranium_exponential - 1)*ai_exponential_handicap + 1
@@ -169,9 +171,10 @@ func spread_counter_propaganda(target: Country) -> void:
 		spread_counter_propaganda_cost *= spread_counter_propaganda_exponential
 
 func send_diplomat(target: Country) -> void:
-	if influence[index] > send_diplomat_influence_cost:
-		influence[index] -= send_diplomat_influence_cost
+	if influence[target.index] > send_diplomat_influence_cost:
+		influence[target.index] -= send_diplomat_influence_cost
 		delta_influence[target.index] += send_diplomat_delta_influence_gain
+		send_diplomat_influence_cost *= send_diplomat_exponential
 
 func spy_on_technology(target: Country) -> void:
 	if money >= spy_on_technology_cost:
