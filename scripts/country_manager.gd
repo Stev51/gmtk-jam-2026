@@ -54,6 +54,9 @@ func process_country(country: Country, delta: float) -> void:
 			
 	#Calculate change in willingness to fire nukes
 	country.delta_willingness_to_fire_nukes = 0
+	if country.index == Globals.PlayerCountry.index:
+		country.willingness_to_fire_nukes = 0
+		return
 	for country_b in countries:
 		country.delta_willingness_to_fire_nukes += (country.nukes - country_b.nukes) / 5
 		country.delta_willingness_to_fire_nukes += (country.influence[country_b.index] - country.influence[country.index]) / 1000
@@ -66,7 +69,7 @@ func process_country(country: Country, delta: float) -> void:
 	if country.willingness_to_fire_nukes < 0.0:
 		country.willingness_to_fire_nukes = 0.0
 	if country.willingness_to_fire_nukes >= 100.0:
-		if country.index != Globals.PlayerCountry.index && country.nukes >= 1:
+		if country.nukes >= 1:
 			DoomsdayClock.zero_hour.emit()
 		else:
 			country.willingness_to_fire_nukes = 100.0
