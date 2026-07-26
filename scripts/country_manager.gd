@@ -47,8 +47,8 @@ func process_country(country: Country, delta: float) -> void:
 	#Five passive stats: money, uranium, research, willingness, influence
 	#delta uranium and delta progress should never be negative. Money can go negative lol
 	country.money += country.delta_money * delta
-	country.uranium += country.mines * 0.005 * delta
-	country.research_progress += country.labs * 0.1 * delta
+	country.uranium += country.mines * 0.001 * delta
+	country.research_progress += country.labs * 0.05 * delta
 	if country.research_progress > 100:
 		country.research_progress = 100.0
 	

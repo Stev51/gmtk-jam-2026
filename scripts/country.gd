@@ -59,17 +59,17 @@ var delta_willingness_to_fire_nukes
 @export var send_diplomat_influence_cost = 10
 @export var send_diplomat_exponential = 1.1
 @export var send_diplomat_delta_influence_gain = 0.1
-@export var spy_on_technology_cost = 5000
+@export var spy_on_technology_cost = 30000
 @export var sabotage_mine_cost = 7000
 @export var sabotage_mine_exponential = 1.1
 @export var sabotage_mine_influence_cost = 30
 @export var sabotage_lab_cost = 7000
 @export var sabotage_lab_exponential = 1.1
 @export var sabotage_lab_influence_cost = 30
-@export var steal_uranium_cost = 5000
+@export var steal_uranium_cost = 50000
 @export var steal_uranium_exponential = 1.05
 @export var steal_uranium_influence_cost = 30
-@export var steal_uranium_uranium_gain = 0.5
+@export var steal_uranium_uranium_gain = 0.2
 @export var calm_fears_influence_cost = 20
 @export var calm_fears_exponential = 1.1
 @export var calm_fears_willingness_decrease = 20
@@ -171,8 +171,8 @@ func spread_counter_propaganda(target: Country) -> void:
 		spread_counter_propaganda_cost *= spread_counter_propaganda_exponential
 
 func send_diplomat(target: Country) -> void:
-	if influence[target.index] > send_diplomat_influence_cost:
-		influence[target.index] -= send_diplomat_influence_cost
+	if influence[index] > send_diplomat_influence_cost:
+		influence[index] -= send_diplomat_influence_cost
 		delta_influence[target.index] += send_diplomat_delta_influence_gain
 		send_diplomat_influence_cost *= send_diplomat_exponential
 
@@ -180,7 +180,7 @@ func spy_on_technology(target: Country) -> void:
 	if money >= spy_on_technology_cost:
 		money -= spy_on_technology_cost
 		#Boost progress by half the tech gap, at least 5
-		research_progress += maxf(5, (target.research_progress - research_progress) / 2)
+		research_progress += maxf(1, (target.research_progress - research_progress) / 2)
 
 func sabotage_mine(target: Country) -> void:
 	if money >= sabotage_mine_cost && influence[target.index] >= sabotage_mine_influence_cost && target.mines >= 1:
