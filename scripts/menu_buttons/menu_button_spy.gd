@@ -14,7 +14,7 @@ func get_description() -> String:
 		text += "[color=green]"
 	else:
 		text += "[color=red]"
-	text += str(snapped(Globals.PlayerCountry.money, 0.01)) + "[/color]\n"
+	text += '$' + str(snapped(Globals.PlayerCountry.spy_on_technology_cost, 0.01)) + "[/color]\n"
 	
 	text += "Research gained: " + str(snapped(maxf(5, (Globals.selected_country.research_progress - Globals.PlayerCountry.research_progress) / 2), 0.01))
 	return text

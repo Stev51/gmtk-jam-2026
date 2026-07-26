@@ -19,6 +19,7 @@ var all_countries_signed_armistice = false
 
 
 func _ready() -> void:
+	Globals.country_init()
 	
 	for country in countries:
 		country.init()
@@ -28,9 +29,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not timed_out_flag and Globals.game_speed != Globals.GameSpeed.PAUSED:
 		
-		delta *= DELTA_MOD
 		if Globals.game_speed == Globals.GameSpeed.FAST:
-			delta *= 2
+			delta *= 3
 		
 		var num_countries_signed_armistice = 0
 		for country in countries:
