@@ -16,7 +16,7 @@ script = ExtResource("1_nn8mf")
 layout_mode = 0
 offset_left = 20.0
 offset_right = 380.0
-offset_bottom = 160.0
+offset_bottom = 162.0
 mouse_filter = 2
 color = Color(0.16470589, 0.16470589, 0.16470589, 1)
 
@@ -36,24 +36,53 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 30.0
 offset_top = 40.0
-offset_right = 140.0
+offset_right = 73.0
 offset_bottom = 160.0
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
-text = "Influence:
-Money:
-Uranium:
-Nukes:
+bbcode_enabled = true
+text = "[img=30]assets/img/icons/icon_influence.png[/img]:
+[img=30]assets/img/icons/icon_money.png[/img]:
+[img=30]assets/img/icons/icon_uranium.png[/img]:
+[img=30]assets/img/icons/icon_nukes.png[/img]:
 "
 
 [node name="StatsTextBox" type="RichTextLabel" parent="." unique_id=2022236705]
 layout_mode = 0
-offset_left = 140.0
+offset_left = 73.0
 offset_top = 40.0
-offset_right = 380.0
+offset_right = 196.0
+offset_bottom = 160.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "N/A
+N/A
+N/A
+N/A"
+
+[node name="LabelsTextBox2" type="RichTextLabel" parent="." unique_id=467062916]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 40.0
+offset_right = 239.0
 offset_bottom = 160.0
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[img=30]assets/img/icons/icon_research.png[/img]:
+[img=30]assets/img/icons/icon_labs.png[/img]:
+[img=30]assets/img/icons/icon_mines.png[/img]:
+[img=30]assets/img/icons/icon_willingness.png[/img]:
+"
+
+[node name="StatsTextBox2" type="RichTextLabel" parent="." unique_id=1661355544]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 40.0
+offset_right = 362.0
+offset_bottom = 160.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 21
 text = "N/A
 N/A
 N/A
