@@ -25,12 +25,12 @@ func run_npc_ai(country: Country):
 	if country.influence[country.index] < country.war_taxes_influence_cost:
 		RWT_weight = 0
 	else:
-		RWT_weight = 1
+		RWT_weight = 5
 		
 	if country.money < country.spread_propaganda_cost:
 		SP_weight = 0
 	else:
-		SP_weight = 1
+		SP_weight = 5
 		
 	if country.money < country.build_lab_cost or country.can_build_nukes == true:
 		BL_weight = 0
@@ -52,7 +52,7 @@ func run_npc_ai(country: Country):
 	else:
 		BN_weight = 5
 	
-	Domestic_Pass_weight = 1
+	Domestic_Pass_weight = 30
 	
 	var sum_domestic_weight = RWT_weight + SP_weight + BL_weight + BM_weight + ENC_weight + BN_weight + Domestic_Pass_weight
 	var weight_target = randf_range(0.0, sum_domestic_weight)
@@ -131,7 +131,7 @@ func run_npc_ai(country: Country):
 		else:
 			CF_weight = 1
 		
-		Foreign_Pass_weight = 1
+		Foreign_Pass_weight = 20
 		
 		var sum_foreign_weight = SG_weight + SCP_weight + SD_weight + SOT_weight + SM_weight + SL_weight + SU_weight + CF_weight + Foreign_Pass_weight
 		weight_target = randf_range(0.0, sum_foreign_weight)
