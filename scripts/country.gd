@@ -98,55 +98,55 @@ func enforce_armistice() -> void:
 
 #Foreign Actions
 
-func send_gift(target) -> void:
+func send_gift(target: Country) -> void:
 	if money >= 10000:
 		money -= 10000
-		influence[target] += 20
+		influence[target.index] += 20
 
 #function called for spreading negative propaganda of target country
-func spread_counter_propaganda(target) -> void:
+func spread_counter_propaganda(target: Country) -> void:
 	if money >= 100:
 		money -= 100
-		CountryManager.countries[target].delta_influence[target] -= 0.1
+		target.delta_influence[target.index] -= 0.1
 
-func send_diplomat(target) -> void:
+func send_diplomat(target: Country) -> void:
 	if influence[index] > 10:
 		influence[index] -= 10
-		delta_influence[target] += 0.1
+		delta_influence[target.index] += 0.1
 
-func spy_on_technology(target) -> void:
+func spy_on_technology(target: Country) -> void:
 	if money >= 10000:
 		money -= 10000
 		#Boost progress by half the tech gap, at least 5
-		research_progress += maxf(5, (CountryManager.countries[target].research_progress - research_progress) / 2)
+		research_progress += maxf(5, (target.research_progress - research_progress) / 2)
 
-func sabotage_mine(target) -> void:
-	if money >= 20000 && influence[target] >= 30 && CountryManager.countries[target].mines >= 1:
+func sabotage_mine(target: Country) -> void:
+	if money >= 20000 && influence[target.index] >= 30 && target.mines >= 1:
 		money -= 20000
-		influence[target] -= 30
-		CountryManager.countries[target].mines -= 1
+		influence[target.index] -= 30
+		target.mines -= 1
 
-func sabotage_lab(target) -> void:
-	if money >= 2000 && influence[target] >= 30 && CountryManager.countries[target].labs >= 1:
+func sabotage_lab(target: Country) -> void:
+	if money >= 2000 && influence[target.index] >= 30 && target.labs >= 1:
 		money -= 2000
-		influence[target] -= 30
-		CountryManager.countries[target].labs -= 1
+		influence[target.index] -= 30
+		target.labs -= 1
 
-func steal_uranium(target) -> void:
-	if money >= 30000 && influence[target] >= 30 && CountryManager.countries[target].uranium >= 0.5:
+func steal_uranium(target: Country) -> void:
+	if money >= 30000 && influence[target.index] >= 30 && target.uranium >= 0.5:
 		money -= 30000
-		influence[target] -= 30
-		CountryManager.countries[target].uranium -= 0.5
+		influence[target.index] -= 30
+		target.uranium -= 0.5
 		uranium += 0.5
 
-func calm_fears(target):
-	if influence[target] >= 20 && CountryManager.countries[target].willingness_to_use_nukes >= 20:
-		influence[target] -= 20
-		CountryManager.countries[target].willingness_to_use_nukes -=20
+func calm_fears(target: Country):
+	if influence[target.index] >= 20 && target.willingness_to_use_nukes >= 20:
+		influence[target.index] -= 20
+		target.willingness_to_use_nukes -=20
 
 #Only available to the player
-func convince_to_sign_armistice(target) -> void:
-	if influence[target] >= 80 && CountryManager.countries[target].willingness_to_fire_nukes <= 10 && CountryManager.countries[target].signed_armistice == false:
-		influence[target] -= 80
-		CountryManager.countries[target].willingness_to_fire_nukes -=10
-		CountryManager.countries[target].signed_armistice = true
+func convince_to_sign_armistice(target: Country) -> void:
+	if influence[target.index] >= 80 && target.willingness_to_fire_nukes <= 10 && target.signed_armistice == false:
+		influence[target.index] -= 80
+		target.willingness_to_fire_nukes -=10
+		target.signed_armistice = true

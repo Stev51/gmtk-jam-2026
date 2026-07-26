@@ -34,7 +34,7 @@ func set_stat_text() -> void:
 	stats_node1.text = ""
 	stats_node2.text = ""
 	
-	stats_node1.append_text("N/A\n")
+	stats_node1.append_text(str(snapped(Globals.PlayerCountry.influence[Globals.selected_country.index], 0.01)) + '\n')
 	stats_node1.append_text(str(snapped(Globals.selected_country.money, 0.01)) + '\n')
 	stats_node1.append_text(str(snapped(Globals.selected_country.uranium, 0.01)) + '\n')
 	stats_node1.append_text(str(snapped(Globals.selected_country.nukes, 0.01)) + '\n')
