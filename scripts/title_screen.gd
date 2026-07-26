@@ -1,5 +1,4 @@
 extends Node2D
 
 func _on_play_button_pressed() -> void:
-	Globals.game_speed = Globals.GameSpeed.NORMAL
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
