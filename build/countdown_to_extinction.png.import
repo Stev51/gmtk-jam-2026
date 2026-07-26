@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx8n0qa20x52r"
-path="res://.godot/imported/countdown.icon.png-a02fc054b7a7899b703c8aa99bb1541c.ctex"
+uid="uid://cbbqitaadqgup"
+path="res://.godot/imported/countdown_to_extinction.png-fb3819c774bb8bedeb61609830d8f4ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://build/countdown.icon.png"
-dest_files=["res://.godot/imported/countdown.icon.png-a02fc054b7a7899b703c8aa99bb1541c.ctex"]
+source_file="res://build/countdown_to_extinction.png"
+dest_files=["res://.godot/imported/countdown_to_extinction.png-fb3819c774bb8bedeb61609830d8f4ca.ctex"]
 
 [params]
 
