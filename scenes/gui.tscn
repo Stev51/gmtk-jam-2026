@@ -48,6 +48,7 @@ color = Color(0.16470589, 0.16470589, 0.16470589, 1)
 anchors_preset = 0
 offset_right = 885.0
 offset_bottom = 85.0
+mouse_filter = 2
 script = ExtResource("1_jqlde")
 
 [node name="GridContainer" type="GridContainer" parent="TopBar/ResourceDisplays" unique_id=1709750397]
@@ -56,24 +57,29 @@ offset_left = 15.0
 offset_top = 15.0
 offset_right = 1920.0
 offset_bottom = 85.0
+mouse_filter = 2
 theme_override_constants/h_separation = 210
 theme_override_constants/v_separation = 100
 columns = 10
 
 [node name="Money" parent="TopBar/ResourceDisplays/GridContainer" unique_id=417750439 instance=ExtResource("1_mfius")]
 layout_mode = 2
+title = "Money"
 icon = ExtResource("3_08a8y")
 
 [node name="Uranium" parent="TopBar/ResourceDisplays/GridContainer" unique_id=1717653351 instance=ExtResource("1_mfius")]
 layout_mode = 2
+title = "Uranium"
 icon = ExtResource("4_v3be1")
 
 [node name="Nukes" parent="TopBar/ResourceDisplays/GridContainer" unique_id=2050375959 instance=ExtResource("1_mfius")]
 layout_mode = 2
+title = "Nuclear Warheads"
 icon = ExtResource("5_xqxrh")
 
 [node name="Research" parent="TopBar/ResourceDisplays/GridContainer" unique_id=635031890 instance=ExtResource("1_mfius")]
 layout_mode = 2
+title = "Research Progress"
 icon = ExtResource("6_qupqx")
 
 [node name="BlankSpacer" parent="TopBar/ResourceDisplays/GridContainer" unique_id=984680270 instance=ExtResource("1_mfius")]
@@ -84,14 +90,18 @@ layout_mode = 2
 
 [node name="Labs" parent="TopBar/ResourceDisplays/GridContainer" unique_id=1588233358 instance=ExtResource("1_mfius")]
 layout_mode = 2
+title = "Labs"
 icon = ExtResource("7_jw8q3")
 
 [node name="Mines" parent="TopBar/ResourceDisplays/GridContainer" unique_id=536699157 instance=ExtResource("1_mfius")]
 layout_mode = 2
+title = "Mines"
 icon = ExtResource("8_bglms")
 
 [node name="Influence" parent="TopBar/ResourceDisplays/GridContainer" unique_id=1027774118 instance=ExtResource("1_mfius")]
 layout_mode = 2
+title = "Self-Influence"
+description = "Your influence on your own country."
 icon = ExtResource("9_xqxrh")
 
 [node name="ClockDisplay" parent="TopBar" unique_id=1149426984 instance=ExtResource("1_efmwq")]
@@ -109,6 +119,7 @@ offset_left = 1030.0
 offset_top = 37.5
 offset_right = 1070.0
 offset_bottom = 77.5
+mouse_filter = 2
 
 [node name="CountryHoverBox" parent="." unique_id=1145551380 instance=ExtResource("2_mfius")]
 visible = false

@@ -10,8 +10,14 @@ func _ready() -> void:
 	hide()
 
 func _input(event) -> void:
-	if visible and event is InputEventMouseMotion:
+	
+	if event is InputEventMouseMotion:
+		
 		position = event.position
+		
+		var buffer = background_node.size.x + 20
+		if 1920 - position.x < buffer:
+			position.x = 1920 - buffer
 
 func hover(title: String, desc: String) -> void:
 	hovered += 1
@@ -29,5 +35,10 @@ func set_text(title: String, desc: String) -> void:
 	description_node.text = desc
 
 func set_boundaries() -> void:
+	
 	background_node.size.x = max(title_node.size.x, description_node.size.x) + 20
-	background_node.size.y = title_node.size.y + description_node.size.y + 10
+	
+	var size_y = title_node.size.y + 10
+	if description_node.text != "":
+		size_y += description_node.size.y 
+	background_node.size.y = size_y

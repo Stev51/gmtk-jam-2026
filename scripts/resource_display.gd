@@ -1,6 +1,8 @@
 @tool
 extends Control
 
+@export var title: String = ""
+@export var description: String = ""
 @export var icon: Texture2D
 
 @onready var count_node = $ResourceCount
@@ -19,3 +21,11 @@ func set_icon() -> void:
 
 func set_text(text: String) -> void:
 	count_node.text = text
+
+func _on_area_2d_mouse_entered() -> void:
+	if self.title != "":
+		MenuHoverBox.hover(title, description)
+
+func _on_area_2d_mouse_exited() -> void:
+	if self.title != "":
+		MenuHoverBox.unhover()
