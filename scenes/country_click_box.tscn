@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://binofxuxpn37f" path="res://assets/img/buttons/foreign_actions/button_sign_armistice.png" id="11_72cvs"]
 [ext_resource type="Script" uid="uid://cia7op5d30kel" path="res://scripts/menu_buttons/menu_button_spy.gd" id="11_p7owh"]
 [ext_resource type="Script" uid="uid://pj2t054si82r" path="res://scripts/menu_buttons/menu_button_steal_uranium.gd" id="13_ox7ll"]
+[ext_resource type="Script" uid="uid://b00ftrh3d2wtf" path="res://scripts/menu_buttons/menu_button_sabotage_lab.gd" id="15_e2cns"]
 
 [node name="CountryClickBox" type="Control" unique_id=1626015699]
 layout_mode = 3
@@ -101,6 +102,7 @@ icon = ExtResource("8_p7owh")
 
 [node name="SabotageLabButton" parent="ForeignInteractionContainer" unique_id=1144352115 instance=ExtResource("2_otq85")]
 layout_mode = 2
+script = ExtResource("15_e2cns")
 title = "Sabotage Lab"
 description = "PLACEHOLDER TEXT"
 icon = ExtResource("9_ox7ll")
